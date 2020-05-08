@@ -86,20 +86,20 @@
     ${filter_authors}
     <#if cafes?? && cafes?size!=0>
         <div class="card-columns">
-            <#list authors as author>
+            <#list cafes as cafe>
 
                 <div class="card m-2" <#--style="width: 20rem;"-->>
-                    <#if author.image??>
-                        <img class="card-img-top" src="/i${author.image.authorImage}" height="400">
+                    <#if cafe.image??>
+                        <img class="card-img-top" src="/i${cafe.image.authorImage}" height="400">
                     </#if>
                     <div class="card-body">
-                        <a class="card-titlem-2">${author.surname} ${author.name}</a>
+                        <a class="card-titlem-2">${cafe.surname} ${cafe.name}</a>
                         <br>
                         <div class="card-text">
-                            <a href="/author/${author.id}/books" class="btn btn-primary m-2">список книг</a>
+                            <a href="/cafe/${cafe.id}/books" class="btn btn-primary m-2">список книг</a>
                             <br>
                             <#if isAdmin>
-                                <a href="/author/admin/${author.id}" class="btn btn-primary m-2">edit</a>
+                                <a href="/cafe/admin/${cafe.id}" class="btn btn-primary m-2">edit</a>
                             </#if>
                         </div>
                     </div>

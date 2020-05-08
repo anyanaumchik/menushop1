@@ -32,7 +32,7 @@ public class DeleteController {
     @PostMapping("/cafe/admin/delete/{id}")
     public String deleteAuthor(@PathVariable long id) {
         cafeService.deleteById(id);
-        return "redirect:/author";
+        return "redirect:/cafe";
     }
 
 }

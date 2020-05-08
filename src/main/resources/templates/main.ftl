@@ -6,7 +6,7 @@
 
 <#--    <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>-->
     <#assign bookIndex=0>
-    <#assign authorIndex=0>
+    <#assign cafeIndex=0>
     <div class="mt-3">
         ${main_book_new}
         <#--        <@spring.message code="filter.books"/>-->
@@ -37,18 +37,18 @@
     </div>
     ${filter_authors}
     <div class="card-deck m-5">
-        <#list authors as author>
-            <#if authorIndex<4>
+        <#list cafes as cafe>
+            <#if cafeIndex<4>
                 <div class="card">
-                    <#assign authorIndex++>
+                    <#assign cafeIndex++>
                     <#if author.image??>
-                        <img src="/${author.image.authorImage}" height="226"/>
+                        <img src="/${cafe.image.authorImage}" height="226"/>
                     <#else >
                         <img src="/authorImageNotFound.png" height="226">
                     </#if>
                     <div class="card-body">
-                        <h5 class="card-title">${author.surname} ${author.name} </h5>
-                        <a href="/author/${author.id}/books" class="card-text">Книги</a>
+                        <h5 class="card-title">${cafe.surname} ${cafe.name} </h5>
+                        <a href="/cafe/${cafe.id}/books" class="card-text">Книги</a>
                     </div>
                 </div>
             </#if>
