@@ -19,7 +19,7 @@ public class MainController {
 
     @GetMapping("/")
     public String main(Model model) {
-        model.addAttribute("books", bookService.getLastBooks());
+        model.addAttribute("dishes", bookService.getLastBooks());
         model.addAttribute("cafes", cafeService.findAll());
         return "main";
     }

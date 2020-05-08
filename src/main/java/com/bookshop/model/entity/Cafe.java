@@ -11,7 +11,7 @@ public class Cafe {
 
     private Long id;
     private String name;
-    private List<Book> books;
+    private List<Dish> dishes;
     private AuthorImage image;
 
     @OneToOne
@@ -31,13 +31,13 @@ public class Cafe {
         return id;
     }
 
-    @OneToMany(targetEntity = Book.class, mappedBy = "cafe", orphanRemoval = true)
-    public List<Book> getBooks() {
-        return books;
+    @OneToMany(targetEntity = Dish.class, mappedBy = "cafe", orphanRemoval = true)
+    public List<Dish> getDishes() {
+        return dishes;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     public void setId(Long id) {
@@ -54,10 +54,10 @@ public class Cafe {
         this.name = name;
     }
 
-    public Cafe(Long id, String name, List<Book> books, AuthorImage image) {
+    public Cafe(Long id, String name, List<Dish> dishes, AuthorImage image) {
         this.id = id;
         this.name = name;
-        this.books = books;
+        this.dishes = dishes;
         this.image = image;
     }
 

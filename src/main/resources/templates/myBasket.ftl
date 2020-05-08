@@ -65,7 +65,7 @@
 <#import "parts/footer.ftl" as f>
 <@f.footer>
 <div class="container center mt-5">
-    <#if books?size!=0>
+    <#if dishes?size!=0>
         <form id="deleteFromBasket">
 
             <table class="table table-bordered ">
@@ -79,30 +79,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                <#list books as book>
+                <#list dishes as dish>
                     <tr>
-                        <td>#{book.price}</td>
+                        <td>#{dish.price}</td>
                         <td><#if .lang=="en">
-                                ${book.titleEn}
+                                ${dish.titleEn}
                             <#elseif .lang=="ru">
-                                ${book.titleRu}
+                                ${dish.titleRu}
                             </#if></td>
-                        <td> ${book.cafe.name}</td>
+                        <td> ${dish.cafe.name}</td>
                         <td>
 
-                            <button type="submit" id="${book.id}" class="btn btn-primary"
-                                    onclick=editCurrentId(${book.id})>
+                            <button type="submit" id="${dish.id}" class="btn btn-primary"
+                                    onclick=editCurrentId(${dish.id})>
                                 ${my_basket_delete}
                             </button>
 
                         </td>
                         <td>
-                            <button type="button" id="qwe${book.id}" class="btn btn-primary"
-                                    onclick=editCurrentIdFor(${book.id})>${my_basket_sent_to_processing}
+                            <button type="button" id="qwe${dish.id}" class="btn btn-primary"
+                                    onclick=editCurrentIdFor(${dish.id})>${my_basket_sent_to_processing}
                             </button>
                         </td>
                     </tr>
-                    <#assign price += book.price>
+                    <#assign price += dish.price>
                 </#list>
                 </tbody>
             </table>
@@ -126,7 +126,7 @@
     <br>
     <input id="bookId" value="${currentId}" type="hidden">
     <input id="bookIdFor" value="${currentIdForProcessing}" type="hidden">
-    <#if approvedBooks?size!=0>
+    <#if approvedDishes?size!=0>
         ${my_basket_approved_books}
 
         <table class="table table-bordered ">
@@ -139,15 +139,15 @@
             </tr>
             </thead>
             <tbody>
-            <#list approvedBooks as book>
+            <#list approvedDishes as dish>
                 <tr>
-                    <td>#{book.price}</td>
+                    <td>#{dish.price}</td>
                     <td><#if .lang=="en">
-                            ${book.titleEn}
+                            ${dish.titleEn}
                         <#elseif .lang=="ru">
-                            ${book.titleRu}
+                            ${dish.titleRu}
                         </#if></td>
-                    <td>${book.cafe.surname} ${book.cafe.name}</td>
+                    <td> ${dish.cafe.name}</td>
 
                 </tr>
             </#list>

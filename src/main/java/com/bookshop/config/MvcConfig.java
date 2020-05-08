@@ -10,9 +10,9 @@ public class MvcConfig implements WebMvcConfigurer {
     @Value("${upload.path.cafe}")
     private String uploadPathAuthor;
 
-    @Value("${upload.path.book}")
+    @Value("${upload.path.dish}")
     private String uploadPathBook;
-    @Value("${upload.path.book.not}")
+    @Value("${upload.path.dish.not}")
     private String uploadPathBookNot;
 
     @Override

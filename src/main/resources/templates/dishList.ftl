@@ -91,7 +91,7 @@
         <#assign currentId=0>
         <h5 align="center"> <#if categoryPage??>
             ${book_page_category}
-            <#--        <@spring.message code="book.page.category"/>-->
+            <#--        <@spring.message code="dish.page.category"/>-->
             <#if .lang=="en">
                 ${category.titleEn}
             <#elseif .lang=="ru">
@@ -99,7 +99,7 @@
             </#if>
             <#elseif authorPage??>
                 ${book_page_author}
-            <#--        <@spring.message code="book.page.cafe"/>-->
+            <#--        <@spring.message code="dish.page.cafe"/>-->
                 ${cafe.name}
             <#else >
 
@@ -111,7 +111,7 @@
             <#if priceError??>
                 ${book_price_error}
             </#if>
-            <#if authorNotFoundError??>
+            <#if cafeNotFoundError??>
                 ${book_error_author_not_Found}
             </#if>
             <div id="accordion">
@@ -125,7 +125,7 @@
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                          data-parent="#accordion">
                         <div class="card-body">
-                            <form method="post" action="/book<#--/admin/create-->" enctype="multipart/form-data">
+                            <form method="post" action="/dish<#--/admin/create-->" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">${book_price}</span>
@@ -155,7 +155,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">${cafe_name}</span>
                                     </div>
-                                    <input type="text" name="authorName" class="form-control"
+                                    <input type="text" name="cafeName" class="form-control"
                                            placeholder="${cafe_name}" aria-label="${cafe_name}"
                                            aria-describedby="basic-addon1"/>
                                 </div>
@@ -170,7 +170,7 @@
                                 <#--                            <input type="text" name="titleRu" placeholder="${book_title_ru}">-->
                                 <#--                            <input type="text" name="titleEn" placeholder="${book_title_en}">-->
                                 <#--                            <input type="text" name="authorSurname" placeholder="${author_surname}">-->
-                                <#--                            <input type="text" name="authorName" placeholder="${author_name}">-->
+                                <#--                            <input type="text" name="cafeName" placeholder="${author_name}">-->
                                 <#--                            <textarea class="mt-1" maxlength="1000" rows="10" cols="90"-->
                                 <#--                                      name="description"></textarea>-->
                                 <br/>
@@ -232,39 +232,39 @@
 
             <form id="basketAdd">
                 <@p.pager url page />
-                <div class="card-columns" id="book-list">
+                <div class="card-columns" id="dish-list">
 
-                    <#list page.content as book>
+                    <#list page.content as dish>
 
-                        <div class="card my-3" data-id="${book.id}">
+                        <div class="card my-3" data-id="${dish.id}">
 
 
-                            <#if book.image??>
-                            <p><a href="/book/${book.id}"><img src="/${book.image.bookImage}" class="leftimg"
+                            <#if dish.image??>
+                            <p><a href="/dish/${dish.id}"><img src="/${dish.image.bookImage}" class="leftimg"
                                                                width="96" height="125"/></a>
                                 <#else>
-                            <p><a href="/book/${book.id}"><img src="/bookImageNotFound.jpg" class="leftimg"
+                            <p><a href="/dish/${dish.id}"><img src="/bookImageNotFound.jpg" class="leftimg"
                                                                width="96" height="125"/></a>
                                 </#if>
-                                <#--${book_author}:--> <i>${book.cafe.name} </i>
+                                <#--${book_author}:--> <i>${dish.cafe.name} </i>
                                 <br/>
                                 <#--                                ${book_title}:-->
 
                                 <b><#if .lang=="en">
-                                        ${book.titleEn}
-                                        <#if book.titleEn?length<32><br><br></#if>
+                                        ${dish.titleEn}
+                                        <#if dish.titleEn?length<32><br><br></#if>
                                     <#elseif .lang=="ru">
-                                        ${book.titleRu}
-                                        <#if book.titleRu?length<32><br><br></#if>
+                                        ${dish.titleRu}
+                                        <#if dish.titleRu?length<32><br><br></#if>
                                     </#if></b>
                             <div class="cope_text line-clamp">
-                                <#if book.description??>
-                                    ${book.description}
-                                    <#if book.description?length<52>
+                                <#if dish.description??>
+                                    ${dish.description}
+                                    <#if dish.description?length<52>
                                         <br/>
                                         <br/>
                                         <br/>
-                                    <#elseif  book.description?length<104>
+                                    <#elseif  dish.description?length<104>
                                         <br/>
                                         <br/>
                                     </#if>
@@ -272,17 +272,17 @@
                             </div>
                             </p>
                             <div class="card-footer text-muted text-right">
-                                <a href="/book/${book.id}"
+                                <a href="/dish/${dish.id}"
                                    class="btn btn-primary ml-2 leftText">${book_view}</a>
                                 <#--                                <#if isAdmin>-->
-                                <#--                                    <a href="/book/admin/${book.id}"-->
+                                <#--                                    <a href="/dish/admin/${dish.id}"-->
                                 <#--                                       class="btn btn-primary ml-2 leftText">${book_edit}</a>-->
                                 <#--                                </#if>-->
 
-                                <b class="mr-2">${book_price}: ${book.price} BYN</b>
+                                <b class="mr-2">${book_price}: ${dish.price} BYN</b>
                                 <br/>
 
-                                <button type="submit" class="btn btn-primary" onclick="editCurrentId(${book.id})"
+                                <button type="submit" class="btn btn-primary" onclick="editCurrentId(${dish.id})"
                                         <#if name="unknown">disabled="disabled"</#if>>
                                     ${book_basket_add}
                                 </button>

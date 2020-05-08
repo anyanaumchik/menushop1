@@ -18,7 +18,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/approvedBook.js"></script>
+    <script type="text/javascript" src="/approvedDish.js"></script>
     <style>
         #AddOnProcessing {
             position: fixed;
@@ -35,7 +35,7 @@
 <body>
 <#include "parts/navbar.ftl">
 <#assign price = 0>
-<#global bookId=0>
+<#global dishId=0>
 <#assign processingPrice = 0>
 <#import "parts/footer.ftl" as f>
 <#include "locale/locale.ftl">
@@ -43,7 +43,7 @@
     <div class="container center mt-5">
         ${admin_user_basket_book_in_cart}
         <#--    Book in Cart-->
-        <form id="approvedBook">
+        <form id="approvedDish">
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -52,18 +52,18 @@
                     <th>${admin_user_basket_author}</th>
                 </thead>
                 <tbody>
-                <#list books as book>
+                <#list dishes as dish>
                     <tr>
-                        <td>#{book.price}</td>
+                        <td>#{dish.price}</td>
                         <td><#if .lang=="en">
-                                ${book.titleEn}
+                                ${dish.titleEn}
                             <#elseif .lang=="ru">
-                                ${book.titleRu}
+                                ${dish.titleRu}
                             </#if></td>
-                        <td>${book.cafe.surname} ${book.cafe.name}</td>
+                        <td> ${dish.cafe.name}</td>
 
                     </tr>
-                    <#assign price += book.price>
+                    <#assign price += dish.price>
                 </#list>
                 </tbody>
             </table>
@@ -82,23 +82,23 @@
                 </tr>
                 </thead>
                 <tbody>
-                <#list booksInProcessing as bookInProcessing>
+                <#list dishesInProcessing as dishInProcessing>
                     <tr>
-                        <td>#{bookInProcessing.price}</td>
+                        <td>#{dishInProcessing.price}</td>
                         <td><#if .lang=="en">
-                                ${bookInProcessing.titleEn}
+                                ${dishInProcessing.titleEn}
                             <#elseif .lang=="ru">
-                                ${bookInProcessing.titleRu}
+                                ${dishInProcessing.titleRu}
                             </#if></td>
-                        <td> ${bookInProcessing.cafe.name}</td>
+                        <td> ${dishInProcessing.cafe.name}</td>
                         <td>
-                            <button type="submit" id="${bookInProcessing.id}" class="btn btn-primary"
-                                    onclick=editCurrentId(${bookInProcessing.id})>
+                            <button type="submit" id="${dishInProcessing.id}" class="btn btn-primary"
+                                    onclick=editCurrentId(${dishInProcessing.id})>
                                 ${admin_user_basket_approved}
                             </button>
                         </td>
                     </tr>
-                    <#assign processingPrice += bookInProcessing.price>
+                    <#assign processingPrice += dishInProcessing.price>
                 </#list>
                 </tbody>
             </table>
@@ -108,14 +108,14 @@
     </div>
 </@f.footer>
 <input type="hidden" id="userId" value="${user.id}">
-<input type="hidden" id="bookId" value="${bookId}">
+<input type="hidden" id="dishId" value="${dishId}">
 <div id="AddOnProcessing" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
      role="alert">
     <strong>${success}</strong><br>${admin_user_basket_book_approved}
 </div>
 <script>
     function editCurrentId(id) {
-        document.getElementById("bookId").value = id;
+        document.getElementById("dishId").value = id;
     }
 </script>
 </body>

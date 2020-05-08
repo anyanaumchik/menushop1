@@ -32,30 +32,30 @@
 <#--    <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>-->
     <#assign currentId=0>
     ${filter_books}
-<#--    <@spring.message code="filter.books"/>-->
-    <#if books?? && books?size!=0>
+<#--    <@spring.message code="filter.dishes"/>-->
+    <#if dishes?? && dishes?size!=0>
         <div class="ml-5 mr-5">
             <form id="basketAdd">
                 <div class="card-columns">
-                    <#list books as book>
+                    <#list dishes as dish>
                         <div class="card my-3">
 
-                            <#if book.image??>
-                            <p><img src="/${book.image.bookImage}" class="leftimg" width="96" height="125">
+                            <#if dish.image??>
+                            <p><img src="/${dish.image.bookImage}" class="leftimg" width="96" height="125">
                                 <#else>
                             <p><img src="/bookImageNotFound.jpg" class="leftimg" width="96" height="125">
                                 </#if>
-                                ${book_author}: ${book.cafe.name} ${book.cafe.surname}
+                                ${book_author}: ${dish.cafe.name} ${dish.cafe.surname}
                                 <br>
                                 ${book_title}
                                 <#if .lang=="en">
-                                    ${book.titleEn}
+                                    ${dish.titleEn}
                                 <#elseif .lang=="ru">
-                                    ${book.titleRu}
+                                    ${dish.titleRu}
                                 </#if>
                             <div class="cope_text line-clamp">
-                                <#if book.description??>
-                                    ${book.description}
+                                <#if dish.description??>
+                                    ${dish.description}
                                 </#if>
                                 <br>
                                 <br>
@@ -63,14 +63,14 @@
                             </div>
                             </p>
                             <div class="card-footer text-muted text-right">
-                                <a href="/book/${book.id}"
+                                <a href="/dish/${dish.id}"
                                    class="btn btn-primary ml-2 leftText">${book_view}</a>
                                 <#if isAdmin>
-                                    <a href="/book/admin/${book.id}"
+                                    <a href="/dish/admin/${dish.id}"
                                        class="btn btn-primary ml-2 leftText">${book_edit}</a>
                                 </#if>
                                 <br>
-                                <b class="mr-2">${book_price}: ${book.price} BYN</b>
+                                <b class="mr-2">${book_price}: ${dish.price} BYN</b>
                                 <#if name!="unknown">
                                 </#if>
                             </div>
@@ -96,7 +96,7 @@
                         <a class="card-titlem-2">${cafe.surname} ${cafe.name}</a>
                         <br>
                         <div class="card-text">
-                            <a href="/cafe/${cafe.id}/books" class="btn btn-primary m-2">список книг</a>
+                            <a href="/cafe/${cafe.id}/dishes" class="btn btn-primary m-2">список книг</a>
                             <br>
                             <#if isAdmin>
                                 <a href="/cafe/admin/${cafe.id}" class="btn btn-primary m-2">edit</a>
@@ -114,7 +114,7 @@
 
         <div class="card-columns">
             <div id="accordion">
-                <#assign books = category.getBooks()>
+                <#assign dishes = category.getDishes()>
                 <div class="card my-3">
                     <div class="card-header" id="heading${category.id}">
                         <h5 class="mb-0">
@@ -132,18 +132,18 @@
                     <div id="collapse${category.id}" class="collapse" aria-labelledby="heading${category.id}"
                          data-parent="#accordion">
                         <div class="card-body">
-                            <#list books as book>
+                            <#list dishes as dish>
                                 <#if index<5>
                                     <div class="card">
-                                        Author: ${book.cafe.surname} ${book.cafe.surname}<br>
+                                        Author: ${dish.cafe.surname} ${dish.cafe.surname}<br>
                                         Title:
                                         <#if .lang=="en">
-                                            ${book.titleEn}
+                                            ${dish.titleEn}
                                         <#elseif .lang=="ru">
-                                            ${book.titleRu}
+                                            ${dish.titleRu}
                                         </#if>
                                         <br>
-                                        <a href="/book/${book.id}" class="right">Book</a>
+                                        <a href="/dish/${dish.id}" class="right">Book</a>
                                     </div>
                                     <#assign index++>
                                 </#if>

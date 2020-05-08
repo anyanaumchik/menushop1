@@ -8,9 +8,9 @@ import java.util.List;
 public class Cart {
 
     private Long id;
-    private List<Book> books;
-    private List<Book> booksInProcessing;
-    private List<Book> booksApproved;
+    private List<Dish> dishes;
+    private List<Dish> dishesInProcessing;
+    private List<Dish> dishesApproved;
     private User user;
 
     @Id
@@ -25,15 +25,15 @@ public class Cart {
     }
 
     @ManyToMany
-    @JoinTable(name = "BOOK_WITH_BASKET",
+    @JoinTable(name = "DISH_WITH_BASKET",
             joinColumns = @JoinColumn(name = "BASKET_ID"),
-            inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
-    public List<Book> getBooks() {
-        return books;
+            inverseJoinColumns = @JoinColumn(name = "DISH_ID"))
+    public List<Dish> getDishes() {
+        return dishes;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -53,34 +53,34 @@ public class Cart {
 
 
     @ManyToMany
-    @JoinTable(name = "BOOK_IN_PROCESSING_WITH_BASKET",
+    @JoinTable(name = "DISH_IN_PROCESSING_WITH_BASKET",
             joinColumns = @JoinColumn(name = "BASKET_ID"),
-            inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
-    public List<Book> getBooksInProcessing() {
-        return booksInProcessing;
+            inverseJoinColumns = @JoinColumn(name = "DISH_ID"))
+    public List<Dish> getDishesInProcessing() {
+        return dishesInProcessing;
     }
 
-    public void setBooksInProcessing(List<Book> booksInProcessing) {
-        this.booksInProcessing = booksInProcessing;
+    public void setDishesInProcessing(List<Dish> booksInProcessing) {
+        this.dishesInProcessing = booksInProcessing;
     }
 
     @ManyToMany
-    @JoinTable(name = "BOOK_APPROVED_WITH_BASKET",
+    @JoinTable(name = "DISH_APPROVED_WITH_BASKET",
             joinColumns = @JoinColumn(name = "BASKET_ID"),
-            inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
-    public List<Book> getBooksApproved() {
-        return booksApproved;
+            inverseJoinColumns = @JoinColumn(name = "DISH_ID"))
+    public List<Dish> getDishesApproved() {
+        return dishesApproved;
     }
 
-    public void setBooksApproved(List<Book> booksApproved) {
-        this.booksApproved = booksApproved;
+    public void setDishesApproved(List<Dish> booksApproved) {
+        this.dishesApproved = booksApproved;
     }
 
-    public Cart(Long id, List<Book> books, List<Book> booksInProcessing, List<Book> booksApproved, User user) {
+    public Cart(Long id, List<Dish> dishes, List<Dish> dishesInProcessing, List<Dish> dishesApproved, User user) {
         this.id = id;
-        this.books = books;
-        this.booksInProcessing = booksInProcessing;
-        this.booksApproved = booksApproved;
+        this.dishes = dishes;
+        this.dishesInProcessing = dishesInProcessing;
+        this.dishesApproved = dishesApproved;
         this.user = user;
     }
 
@@ -91,10 +91,10 @@ public class Cart {
     public Cart() {
     }
 
-    public Cart(Long id, List<Book> books, List<Book> booksInProcessing, List<Book> booksApproved) {
+    public Cart(Long id, List<Dish> dishes, List<Dish> dishesInProcessing, List<Dish> dishesApproved) {
         this.id = id;
-        this.books = books;
-        this.booksInProcessing = booksInProcessing;
-        this.booksApproved = booksApproved;
+        this.dishes = dishes;
+        this.dishesInProcessing = dishesInProcessing;
+        this.dishesApproved = dishesApproved;
     }
 }

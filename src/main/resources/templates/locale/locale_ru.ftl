@@ -22,7 +22,7 @@ navbar_lang_ru="Русский"
 navbar_lang_en="Английский"
 navbar_log_in="Войти"
 navbar_log_out="Выйти"
-<#--    #book-->
+<#--    #dish-->
 book_price_error="Неверный ввод цены"
 book_book_add_success="Книга успешно создана"
 book_error_author_not_Found="Автор не найден"
@@ -59,7 +59,7 @@ account_delete="Удалить аккаунт"
 <#--    #cafe-->
 author_surname="Фамилия автора"
 author_name="Имя автора"
-<#--    #book page-->
+<#--    #dish page-->
 book_page_category="Книги из категории"
 book_page_author="Книги автора"
 <#--    #registration page-->

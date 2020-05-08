@@ -38,42 +38,42 @@
 <@f.footer>
     <div class="container  mt-5">
     <form id="basketAdd">
-        <#if book.image??>
-        <p><img src="/${book.image.bookImage}" align="left" class="m-2" width="300" height="400"/>
+        <#if dish.image??>
+        <p><img src="/${dish.image.bookImage}" align="left" class="m-2" width="300" height="400"/>
             <#else>
         <p><img src="/bookImageNotFound.jpg" align="left" class="m-2" width="300" height="400"/>
             </#if>
         <div class="mt-5 m-5">
-            ${book_author}: ${book.cafe.name}
+            ${book_author}: ${dish.cafe.name}
             <br>
             ${book_title}:
             <#if .lang=="en">
-                ${book.titleEn}
+                ${dish.titleEn}
             <#elseif .lang=="ru">
-                ${book.titleRu}
+                ${dish.titleRu}
             </#if>
             <br>
             <br>
             <br>
             <div class="cope_text line-clamp">
-                <#if book.description??>
-                    ${book.description}
+                <#if dish.description??>
+                    ${dish.description}
                 </#if>
             </div>
             <br>
-            <b class="mr-2">${book_price}: ${book.price} BYN</b>
+            <b class="mr-2">${book_price}: ${dish.price} BYN</b>
             <br>
-            <button type="submit" class="btn btn-primary" onclick=editCurrentId(${book.id})
+            <button type="submit" class="btn btn-primary" onclick=editCurrentId(${dish.id})
                     <#if name="unknown">disabled="disabled"</#if>>
                 ${book_basket_add}
             </button>
 
             <#if isAdmin>
-                <a href="/book/admin/${book.id}"
+                <a href="/dish/admin/${dish.id}"
                    class="btn btn-primary ml-2 leftText">${book_edit}</a>
             </#if>
 
-            <input type="hidden" id="bookId" value="${book.id}">
+            <input type="hidden" id="bookId" value="${dish.id}">
     </form>
 
     </div></@f.footer>

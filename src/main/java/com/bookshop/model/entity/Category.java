@@ -12,18 +12,18 @@ public class Category implements Serializable {
     protected long id;
     private String titleRu;
     private String titleEn;
-    private List<Book> Books;
+    private List<Dish> dishes;
 
     @ManyToMany
-    @JoinTable(name = "BOOK_WITH_CATEGORY",
+    @JoinTable(name = "DISH_WITH_CATEGORY",
             joinColumns = @JoinColumn(name = "CATEGORY_ID"),
-            inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
-    public List<Book> getBooks() {
-        return Books;
+            inverseJoinColumns = @JoinColumn(name = "DISH_ID"))
+    public List<Dish> getDishes() {
+        return dishes;
     }
 
-    public void setBooks(List<Book> books) {
-        Books = books;
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 
 
@@ -63,11 +63,11 @@ public class Category implements Serializable {
         return String.valueOf(id);
     }
 
-    public Category(long id, String titleRu, String titleEn, List<Book> books) {
+    public Category(long id, String titleRu, String titleEn, List<Dish> dishes) {
         this.id = id;
         this.titleRu = titleRu;
         this.titleEn = titleEn;
-        Books = books;
+        this.dishes = dishes;
     }
 
     public Category(String titleRu, String titleEn) {

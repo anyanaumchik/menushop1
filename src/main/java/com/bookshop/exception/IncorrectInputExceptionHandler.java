@@ -1,6 +1,6 @@
 package com.bookshop.exception;
 
-import com.bookshop.controller.BookController;
+import com.bookshop.controller.DishController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class IncorrectInputExceptionHandler {
 
     @Autowired
-    private BookController bookController;
+    private DishController dishController;
 
     @ExceptionHandler(Exception.class)
     public String notBook(Exception e) {
@@ -33,6 +33,6 @@ public class IncorrectInputExceptionHandler {
         if (httpServletRequest.getRequestURL().indexOf("book") + 4 != httpServletRequest.getRequestURL().length())
             return "redirect:/book";
         model.addAttribute("priceError", "");
-        return bookController.bookList(model, pageable);
+        return dishController.dishList(model, pageable);
     }
 }

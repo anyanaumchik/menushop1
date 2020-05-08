@@ -1,7 +1,7 @@
 package com.bookshop.service;
 
 import com.bookshop.model.dataService.CartDataService;
-import com.bookshop.model.entity.Book;
+import com.bookshop.model.entity.Dish;
 import com.bookshop.model.entity.Cart;
 import com.bookshop.model.entity.CustomUserDetail;
 import com.bookshop.model.entity.User;
@@ -44,43 +44,43 @@ public class CartService {
         return cart;
     }
 
-    public void addSingleBookToBasket(User user, Book book) {
+    public void addSingleBookToBasket(User user, Dish dish) {
         Cart cart = userService.getCurrentUser(user).getCart();
         if (cart == null) {
             cart = create(user);
         }
-        List<Book> books = cart.getBooks();
-        if (cart.getBooks() == null) {
-            books = new ArrayList<>();
+        List<Dish> dishes = cart.getDishes();
+        if (cart.getDishes() == null) {
+            dishes = new ArrayList<>();
         }
-        books.add(book);
+        dishes.add(dish);
         save(cart);
     }
 
-    public void deleteBookFromBasket(CustomUserDetail user, Book book) {
+    public void deleteBookFromBasket(CustomUserDetail user, Dish dish) {
         Cart cart = userService.getCurrentUser(user).getCart();
-        cart.getBooks().remove(bookService.findById(book.getId()));
+        cart.getDishes().remove(bookService.findById(dish.getId()));
         save(cart);
     }
 
-    public void sendBookToProcessing(CustomUserDetail user, Book book) {
+    public void sendBookToProcessing(CustomUserDetail user, Dish dish) {
         Cart cart = userService.getCurrentUser(user).getCart();
-        cart.getBooks().remove(bookService.findById(book.getId()));
-        cart.getBooksInProcessing().add(bookService.findById(book.getId()));
+        cart.getDishes().remove(bookService.findById(dish.getId()));
+        cart.getDishesInProcessing().add(bookService.findById(dish.getId()));
         save(cart);
     }
 
     public void sendAllBooksToProcessing(CustomUserDetail user) {
         Cart cart = userService.getCurrentUser(user).getCart();
-        cart.getBooksInProcessing().addAll(cart.getBooks());
-        cart.getBooks().clear();
+        cart.getDishesInProcessing().addAll(cart.getDishes());
+        cart.getDishes().clear();
         save(cart);
     }
 
-    public void approvedSingleBookToUser(Book book, User user) {
+    public void approvedSingleBookToUser(Dish dish, User user) {
         Cart cart = userService.getCurrentUser(user).getCart();
-        cart.getBooksInProcessing().remove(bookService.findById(book.getId()));
-        cart.getBooksApproved().add(bookService.findById(book.getId()));
+        cart.getDishesInProcessing().remove(bookService.findById(dish.getId()));
+        cart.getDishesApproved().add(bookService.findById(dish.getId()));
         save(cart);
     }
 }

@@ -3,9 +3,9 @@
 <@c.page>
     Book Edit
     <#assign index=0>
-    <form action="/book/admin/save" method="post" enctype="multipart/form-data">
-        <#if book.image??>
-            <img src="/${book.image.bookImage}" width="300" height="400">
+    <form action="/dish/admin/save" method="post" enctype="multipart/form-data">
+        <#if dish.image??>
+            <img src="/${dish.image.bookImage}" width="300" height="400">
         </#if>
 
         <div class="input-group mb-3 mt-2">
@@ -14,7 +14,7 @@
             </div>
             <input type="number" step="0.01" name="price" placeholder="${book_price}"
                    class="form-control" aria-label="${book_price}"
-                   aria-describedby="basic-addon1" value="${book.price}">
+                   aria-describedby="basic-addon1" value="${dish.price}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -22,7 +22,7 @@
             </div>
             <input type="text" name="titleRu" class="form-control"
                    placeholder="${book_title_ru}" aria-label="${book_title_ru}"
-                   aria-describedby="basic-addon1" value="${book.titleRu}">
+                   aria-describedby="basic-addon1" value="${dish.titleRu}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -30,30 +30,22 @@
             </div>
             <input type="text" name="titleEn" class="form-control"
                    placeholder="${book_title_en}" aria-label="${book_title_en}"
-                   aria-describedby="basic-addon1" value="${book.titleEn}">
+                   aria-describedby="basic-addon1" value="${dish.titleEn}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">${author_surname}</span>
-            </div>
-            <input type="text" name="authorSurname" class="form-control"
-                   placeholder="${author_surname}" aria-label="${author_surname}"
-                   aria-describedby="basic-addon1" value="${book.cafe.surname}">
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">${author_name}</span>
+                <span class="input-group-text" id="basic-addon1">${cafe_name}</span>
             </div>
             <input type="text" name="authorName" class="form-control"
-                   placeholder="${author_name}" aria-label="${author_name}"
-                   aria-describedby="basic-addon1" value="${book.cafe.name}">
+                   placeholder="${cafe_name}" aria-label="${cafe_name}"
+                   aria-describedby="basic-addon1" value="${dish.cafe.name}">
         </div>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">${book_description}</span>
             </div>
             <textarea name="description" class="form-control"
-                      aria-label="description">${book.description}</textarea>
+                      aria-label="description">${dish.description}</textarea>
         </div>
         <#--                            <input type="number" step="0.01" name="price" placeholder=${book_price}>-->
         <#--                            <input type="text" name="titleRu" placeholder="${book_title_ru}">-->
@@ -90,7 +82,7 @@
                             <#list categories as category>
                                 <div class="card">
                                     <label><input type="checkbox" name="${category}" class="ml-3"
-                                                ${book.categories?seq_contains(category)?string("checked", "")}>
+                                                ${dish.categories?seq_contains(category)?string("checked", "")}>
                                         <#if .lang=="en">
                                             ${category.titleEn}
                                         <#elseif .lang=="ru">
@@ -108,23 +100,23 @@
         <#--                    <button type="submit" class="btn btn-primary mt-2">${book_add}</button>-->
 
 
-        <#--        <input type="text" name="titleRu" value="${book.titleRu}">-->
-        <#--        <input type="text" name="titleEn" value="${book.titleEn}">-->
-        <#--        <input type="text" name="authorSurname" value="${book.cafe.surname}">-->
-        <#--        <input type="text" name="authorName" value="${book.cafe.name}">-->
+        <#--        <input type="text" name="titleRu" value="${dish.titleRu}">-->
+        <#--        <input type="text" name="titleEn" value="${dish.titleEn}">-->
+        <#--        <input type="text" name="authorSurname" value="${dish.cafe.surname}">-->
+        <#--        <input type="text" name="authorName" value="${dish.cafe.name}">-->
         <#--        <input type="file" name="image">-->
-        <#--        <#if book.image??>-->
-        <#--            <img src="/img/book/${book.image.bookImage}">-->
+        <#--        <#if dish.image??>-->
+        <#--            <img src="/img/dish/${dish.image.bookImage}">-->
         <#--        </#if>-->
 
         <#--        <textarea maxlength="1000" rows="10" cols="90"-->
-        <#--                  name="description"><#if book.description??>${book.description}</#if></textarea>-->
+        <#--                  name="description"><#if dish.description??>${dish.description}</#if></textarea>-->
         <#--        <div class="card-columns">-->
 
         <#--            <#list categories as category>-->
         <#--                <div class="card">-->
         <#--                    <label><input type="checkbox" name="${category}" class="ml-3"-->
-        <#--                                ${book.categories?seq_contains(category)?string("checked", "")}>-->
+        <#--                                ${dish.categories?seq_contains(category)?string("checked", "")}>-->
         <#--                        <#if .lang=="en">-->
         <#--                            ${category.titleEn}-->
         <#--                        <#elseif .lang=="ru">-->
@@ -135,11 +127,11 @@
         <#--            </#list>-->
 
         <#--        </div>-->
-        <input type="hidden" value="${book.id}" name="bookId">
+        <input type="hidden" value="${dish.id}" name="bookId">
         <button type="submit" class="btn btn-primary mt-2">${book_save}</button>
     </form>
     <br>
-    <form method="post" action="/book/admin/delete/${book.id}">
+    <form method="post" action="/dish/admin/delete/${dish.id}">
         <button type="submit" class="btn btn-primary">${book_delete}</button>
     </form>
 </@c.page>

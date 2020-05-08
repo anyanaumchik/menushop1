@@ -23,7 +23,7 @@
                 <a class="nav-link" href="/">${navbar_home}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/book">${navbar_books}</a>
+                <a class="nav-link" href="/dish">${navbar_books}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/cafe">${navbar_cafes}</a>

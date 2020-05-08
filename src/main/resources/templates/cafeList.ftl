@@ -53,7 +53,7 @@
                         <a class="card-title m-2"> ${cafe.name}</a>
                         <br>
                         <div class="card-text">
-                            <a href="/cafe/${cafe.id}/books"
+                            <a href="/cafe/${cafe.id}/dishes"
                                class="btn btn-primary m-2">${author_list_author_book_list}</a>
                             <br>
                             <#if isAdmin>

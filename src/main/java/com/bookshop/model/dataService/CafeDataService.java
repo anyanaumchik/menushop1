@@ -30,7 +30,7 @@ public class CafeDataService {
         return cafeDAO.findByName( name);
     }
 
-    public List<Cafe> findBySurnameOrName(String surname, String name) {
+    public List<Cafe> findBySurnameOrName(String name1, String name) {
         return cafeDAO.findByNameOrName(name, name);
     }
 

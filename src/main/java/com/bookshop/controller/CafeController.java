@@ -66,7 +66,7 @@ public class CafeController {
         return "redirect:/cafe";
     }
 
-    @GetMapping("/{cafe}/books")
+    @GetMapping("/{cafe}/dishes")
     public String authorBooks(Model model, @PathVariable long cafe, @PageableDefault(size = 12) Pageable pageable) {
         try {
             model.addAttribute("page", bookService.findAllByAuthor(cafeService.findById(cafe), pageable));
@@ -76,7 +76,7 @@ public class CafeController {
         model.addAttribute("cafe", "");
         model.addAttribute("cafe", cafeService.findById(cafe));
         model.addAttribute("url", "/cafe/" + cafe + "/books");
-        return "bookList";
+        return "dishList";
     }
 
 

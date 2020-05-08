@@ -1,6 +1,6 @@
 package com.bookshop.controller;
 
-import com.bookshop.model.entity.Book;
+import com.bookshop.model.entity.Dish;
 import com.bookshop.service.CafeService;
 import com.bookshop.service.BookService;
 import com.bookshop.service.CategoryService;
@@ -17,8 +17,8 @@ import java.io.IOException;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/book")
-public class BookController {
+@RequestMapping("/dish")
+public class DishController {
 
     @Autowired
     private CafeService cafeService;
@@ -30,71 +30,71 @@ public class BookController {
     private CategoryService categoryService;
 
     @GetMapping
-    public String bookList(Model model, /*@AuthenticationPrincipal CustomUserDetail user,*/
+    public String dishList(Model model, /*@AuthenticationPrincipal CustomUserDetail user,*/
                            @PageableDefault(value = 12) Pageable pageable) {
-        model.addAttribute("url", "/book");
+        model.addAttribute("url", "/dish");
         model.addAttribute("page", bookService.findAllPage(pageable));
         model.addAttribute("categories", categoryService.findAll());
-        return "bookList";
+        return "dishList";
     }
 
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping/*("/admin/create")*/
-    public String bookCreate(@RequestParam MultipartFile image,
+    public String dishCreate(@RequestParam MultipartFile image,
                              @RequestParam Map<String, String> form,
                              Model model, @PageableDefault(value = 12) Pageable pageable) throws IOException {
-        if (!cafeService.findByName( form.get("authorName").trim()).isPresent()) {
-            model.addAttribute("url", "/book");
+        if (!cafeService.findByName( form.get("cafeName").trim()).isPresent()) {
+            model.addAttribute("url", "/dish");
             model.addAttribute("page", bookService.findAllPage(pageable));
             model.addAttribute("categories", categoryService.findAll());
-            model.addAttribute("authorNotFoundError", "");
-            return "bookList";
+            model.addAttribute("cafeNotFoundError", "");
+            return "dishList";
         }
-        bookService.create(Double.parseDouble(form.get("price")), form.get("titleRu").trim(), form.get("titleEn").trim(), form.get("description").trim(), cafeService.findByName(form.get("authorName").trim()).get(), form, image);
+        bookService.create(Double.parseDouble(form.get("price")), form.get("titleRu").trim(), form.get("titleEn").trim(), form.get("description").trim(), cafeService.findByName(form.get("cafeName").trim()).get(), form, image);
         model.addAttribute("bookAddSuccess", "");
         model.addAttribute("url", "/book");
         model.addAttribute("page", bookService.findAllPage(pageable));
         model.addAttribute("categories", categoryService.findAll());
-        return "bookList";
+        return "dishList";
     }
 
     @PreAuthorize("hasAnyRole('ADMIN')")
-    @GetMapping("/admin/{book}")
-    public String bookEdit(@PathVariable Long book, Model model) {
-        Book byId = bookService.findById(book);
-        if (bookIsNull(byId))
-            return "redirect:/book";
-        model.addAttribute("book", byId);
+    @GetMapping("/admin/{dish}")
+    public String dishEdit(@PathVariable Long dish, Model model) {
+        Dish byId = bookService.findById(dish);
+        if (dishIsNull(byId))
+            return "redirect:/dish";
+        model.addAttribute("dish", byId);
         model.addAttribute("categories", categoryService.findAll());
-        return "bookEdit";
+        return "dishEdit";
     }
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping("/admin/save")
-    public String bookSaveEdit(
+    public String dishSaveEdit(
             @RequestParam MultipartFile image,
             @RequestParam Map<String, String> form,
-            @RequestParam("bookId") Book book) throws IOException {
-        if (!cafeService.findByName( form.get("authorName")).isPresent()) {
-            return "redirect:/book/admin/" + book.getId();
+            @RequestParam("dishId") Dish dish) throws IOException {
+        if (!cafeService.findByName( form.get("cafeName")).isPresent()) {
+            return "redirect:/dish/admin/" + dish.getId();
         }
-        bookService.update(book, Double.parseDouble(form.get("price")),
+        bookService.update(dish, Double.parseDouble(form.get("price")),
                 form.get("titleEn"), form.get("titleRu"),
-                form.get("authorName"), form.get("description"), form, image);
-        return "redirect:/book";
+                form.get("cafeName"), form.get("description"), form, image);
+        return "redirect:/dish";
     }
 
-    @GetMapping("/{book}")
-    public String book(@PathVariable Long book, Model model) {
-        Book byId = bookService.findById(book);
-        if (bookIsNull(byId)) return "redirect:/book";
-        model.addAttribute("book", byId);
+    @GetMapping("/{dish}")
+    public String dish(@PathVariable Long dish, Model model) {
+        Dish byId = bookService.findById(dish);
+        if (dishIsNull(byId)) return "redirect:/dish";
+        model.addAttribute("dish", byId);
         model.addAttribute("categories", categoryService.findAll());
-        return "book";
+        return "dish";
     }
 
-    private boolean bookIsNull(Book byId) {
+    private boolean dishIsNull(Dish byId) {
         return byId == null;
     }
 }

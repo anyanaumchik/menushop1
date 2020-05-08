@@ -5,17 +5,17 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "BOOK")
-public class Book {
+@Table(name = "DISH")
+public class Dish {
 
     private long id;
     private double price;
-    private String titleRu;
-    private String titleEn;
+    private String description;
     private List<Category> categories;
     private Cafe cafe;
     private BookImage image;
-    private String description;
+    private String titleRu;
+    private String titleEn;
 
     @Column(name = "DESCRIPTION")
     public String getDescription() {
@@ -49,7 +49,7 @@ public class Book {
 
     @ManyToMany
     @JoinTable(name = "BOOK_WITH_CATEGORY",
-            joinColumns = @JoinColumn(name = "BOOK_ID"),
+            joinColumns = @JoinColumn(name = "DISH_ID"),
             inverseJoinColumns = @JoinColumn(name = "CATEGORY_ID"))
     public List<Category> getCategories() {
         return categories;
@@ -103,7 +103,7 @@ public class Book {
         this.titleEn = titleEn;
     }
 
-    public Book(long id, double price, String titleRu, String titleEn, List<Category> categories, Cafe cafe, BookImage image, String description) {
+    public Dish(long id, double price, String titleRu, String titleEn, List<Category> categories, Cafe cafe, BookImage image, String description) {
         this.id = id;
         this.price = price;
         this.titleRu = titleRu;
@@ -114,14 +114,14 @@ public class Book {
         this.description = description;
     }
 
-    public Book(double price, String titleRu, String titleEn, String description) {
+    public Dish(double price, String titleRu, String titleEn, String description) {
         this.price = price;
         this.titleRu = titleRu;
         this.titleEn = titleEn;
         this.description = description;
     }
 
-    public Book() {
+    public Dish() {
     }
 
 }

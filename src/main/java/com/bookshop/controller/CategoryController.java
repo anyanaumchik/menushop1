@@ -40,7 +40,7 @@ public class CategoryController {
         model.addAttribute("category", categoryService.findById(category));
         model.addAttribute("page", bookService.findAllByCategories(categoryService.findById(category), pageable));
         model.addAttribute("url", "/category/" + category);
-        return "bookList";
+        return "dishList";
     }
 
 

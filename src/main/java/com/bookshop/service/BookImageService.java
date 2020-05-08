@@ -1,7 +1,7 @@
 package com.bookshop.service;
 
 import com.bookshop.model.dataService.BookImageDataService;
-import com.bookshop.model.entity.Book;
+import com.bookshop.model.entity.Dish;
 import com.bookshop.model.entity.BookImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class BookImageService {
@@ -22,7 +21,7 @@ public class BookImageService {
     @Autowired
     private BookService bookService;
 
-    @Value("${upload.path.book}")
+    @Value("${upload.path.dish}")
     private String uploadPath;
 
 
@@ -42,7 +41,7 @@ public class BookImageService {
         bookImageDTO.deleteById(id);
     }
 
-    public void add(MultipartFile image, Book book) throws IOException {
+    public void add(MultipartFile image, Dish dish) throws IOException {
         if (image != null && !image.getOriginalFilename().isEmpty() && image.getOriginalFilename() != null) {
             BookImage book_image = new BookImage();
             File uploadDir = new File(uploadPath);
@@ -52,8 +51,8 @@ public class BookImageService {
             String fileName = image.getOriginalFilename();
             book_image.setBookImage(fileName);
             save(book_image);
-            book.setImage(book_image);
-            bookService.save(book);
+            dish.setImage(book_image);
+            bookService.save(dish);
         }
     }
 }

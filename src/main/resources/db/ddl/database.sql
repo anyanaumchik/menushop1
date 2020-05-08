@@ -1,4 +1,4 @@
-CREATE TABLE BOOK
+CREATE TABLE DISH
 (
     ID           BIGINT PRIMARY KEY NOT NULL auto_increment,
     PRICE        DOUBLE             NOT NULL,
@@ -52,19 +52,19 @@ CREATE TABLE USER
     FK_ROLE_ID   BIGINT             NOT NULL,
     FK_BASKET_ID BIGINT
 );
-CREATE TABLE book_with_category
+CREATE TABLE dish_with_category
 (
-    book_id     bigint not null,
+    dish_id     bigint not null,
     category_id bigint not null
 );
 
-ALTER TABLE book_with_category
-    add FOREIGN KEY (book_id) references book (id);
-ALTER TABLE book_with_category
+ALTER TABLE dish_with_category
+    add FOREIGN KEY (dish_id) references dish (id);
+ALTER TABLE dish_with_category
     add FOREIGN KEY (category_id) references CATEGORY (id);
-ALTER TABLE BOOK
+ALTER TABLE dish
     add foreign key (fk_image_id) references BOOK_IMAGE (ID);
-ALTER TABLE BOOK
+ALTER TABLE dish
     ADD FOREIGN KEY (FK_CAFE_ID) REFERENCES CAFE (ID);
 ALTER TABLE CAFE
     ADD FOREIGN KEY (FK_IMAGE_ID) REFERENCES AUTHOR_IMAGE (ID);

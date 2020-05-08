@@ -1,6 +1,6 @@
 package com.bookshop.controller;
 
-import com.bookshop.model.entity.Book;
+import com.bookshop.model.entity.Dish;
 import com.bookshop.model.entity.CustomUserDetail;
 import com.bookshop.service.BookService;
 import com.bookshop.service.CartService;
@@ -28,23 +28,23 @@ public class BasketController {
 
 
     @PostMapping("/saveBook")
-    public ResponseEntity<Object> addBookToCart(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Book book) {
-        cartService.addSingleBookToBasket(user, bookService.findById(book.getId()));
-        ServiceResponse<Long> response = new ServiceResponse<>("success", book.getId());
+    public ResponseEntity<Object> addBookToCart(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Dish dish) {
+        cartService.addSingleBookToBasket(user, bookService.findById(dish.getId()));
+        ServiceResponse<Long> response = new ServiceResponse<>("success", dish.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("account/deleteFromBasket")
-    public ResponseEntity<Object> deleteBook(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Book book) {
-        cartService.deleteBookFromBasket(user, book);
-        ServiceResponse<Long> response = new ServiceResponse<>("success", book.getId());
+    public ResponseEntity<Object> deleteBook(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Dish dish) {
+        cartService.deleteBookFromBasket(user, dish);
+        ServiceResponse<Long> response = new ServiceResponse<>("success", dish.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("account/bookToProcessing")
-    public ResponseEntity<Object> bookToProcessing(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Book book) {
-        cartService.sendBookToProcessing(user, book);
-        ServiceResponse<Long> response = new ServiceResponse<Long>("success", book.getId());
+    public ResponseEntity<Object> bookToProcessing(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Dish dish) {
+        cartService.sendBookToProcessing(user, dish);
+        ServiceResponse<Long> response = new ServiceResponse<Long>("success", dish.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
