@@ -1,6 +1,6 @@
 package com.bookshop.service;
 
-import com.bookshop.model.dataService.AuthorDataService;
+import com.bookshop.model.dataService.CafeDataService;
 import com.bookshop.model.entity.Cafe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,40 +12,40 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AuthorService {
+public class CafeService {
 
     @Autowired
-    private AuthorDataService authorDataService;
+    private CafeDataService cafeDataService;
 
     @Autowired
-    private AuthorImageService authorImageService;
+    private CafeImageService cafeImageService;
 
     public void save(Cafe cafe) {
-        authorDataService.save(cafe);
+        cafeDataService.save(cafe);
     }
 
     public Optional<Cafe> findBySurnameAndName(String surname, String name) {
         if (!StringUtils.isEmpty(surname) && !StringUtils.isEmpty(name)) {
-            return authorDataService.findBySurnameAndName(surname, name);
+            return cafeDataService.findBySurnameAndName(surname, name);
         } else {
             return Optional.empty();
         }
     }
 
     public List<Cafe> findBySurnameOrName(String surname, String name) {
-        return authorDataService.findBySurnameOrName(surname, name);
+        return cafeDataService.findBySurnameOrName(surname, name);
     }
 
     public void deleteById(long id) {
-        authorDataService.deleteById(id);
+        cafeDataService.deleteById(id);
     }
 
     public Cafe findById(long id) {
-        return authorDataService.findById(id);
+        return cafeDataService.findById(id);
     }
 
     public List<Cafe> findAll() {
-        return authorDataService.findAll();
+        return cafeDataService.findAll();
     }
 
     public void update(String surname, String name, Cafe cafe, MultipartFile image) throws IOException {
@@ -56,9 +56,9 @@ public class AuthorService {
             if (cafe.getImage() != null) {
                 authorImageToDelete = cafe.getImage().getId();
             }
-            authorImageService.add(image, cafe);
+            cafeImageService.add(image, cafe);
             if (authorImageToDelete != null)
-                authorImageService.deleteById(authorImageToDelete);
+                cafeImageService.deleteById(authorImageToDelete);
         }
         save(cafe);
     }

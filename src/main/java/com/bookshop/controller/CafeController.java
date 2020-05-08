@@ -2,8 +2,8 @@ package com.bookshop.controller;
 
 import com.bookshop.exception.PageNotFoundException;
 import com.bookshop.model.entity.Cafe;
-import com.bookshop.service.AuthorImageService;
-import com.bookshop.service.AuthorService;
+import com.bookshop.service.CafeImageService;
+import com.bookshop.service.CafeService;
 import com.bookshop.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -20,17 +20,17 @@ import java.io.IOException;
 public class CafeController {
 
     @Autowired
-    private AuthorService authorService;
+    private CafeService cafeService;
 
     @Autowired
-    private AuthorImageService authorImageService;
+    private CafeImageService cafeImageService;
 
     @Autowired
     private BookService bookService;
 
     @GetMapping("admin/{cafeId}")
     public String cafeEditPage(@PathVariable("cafeId") Long cafe, Model model) {
-        model.addAttribute("cafe", authorService.findById(cafe));
+        model.addAttribute("cafe", cafeService.findById(cafe));
         return "cafeEdit";
     }
 
@@ -38,7 +38,7 @@ public class CafeController {
     public String cafeSaveEditedInformation(@RequestParam String surname, @RequestParam String name, @RequestParam("cafeId") Cafe cafe,
                                             @RequestParam MultipartFile image) throws IOException {
         try {
-            authorService.update(surname, name, cafe, image);
+            cafeService.update(surname, name, cafe, image);
         } catch (Exception e) {
             throw new PageNotFoundException();
         }
@@ -47,7 +47,7 @@ public class CafeController {
 
     @GetMapping
     public String authorList(Model model) {
-        model.addAttribute("cafes", authorService.findAll());
+        model.addAttribute("cafes", cafeService.findAll());
         return "cafeList";
     }
 
@@ -56,26 +56,26 @@ public class CafeController {
                           @RequestParam String name,
                           @RequestParam MultipartFile image,
                           Model model) throws IOException {
-        if (authorService.findBySurnameAndName(surname, name).isPresent()) {
+        if (cafeService.findBySurnameAndName(surname, name).isPresent()) {
             model.addAttribute("cafeError", "cafe is already exist");
-            model.addAttribute("cafes", authorService.findAll());
+            model.addAttribute("cafes", cafeService.findAll());
 
             return "cafeList";
         }
-        authorService.create(surname, name);
-        authorImageService.add(image, authorService.findBySurnameAndName(surname, name).get());
+        cafeService.create(surname, name);
+        cafeImageService.add(image, cafeService.findBySurnameAndName(surname, name).get());
         return "redirect:/cafe";
     }
 
     @GetMapping("/{cafe}/books")
     public String authorBooks(Model model, @PathVariable long cafe, @PageableDefault(size = 12) Pageable pageable) {
         try {
-            model.addAttribute("page", bookService.findAllByAuthor(authorService.findById(cafe), pageable));
+            model.addAttribute("page", bookService.findAllByAuthor(cafeService.findById(cafe), pageable));
         } catch (Exception e) {
             throw new PageNotFoundException();
         }
         model.addAttribute("cafe", "");
-        model.addAttribute("cafe", authorService.findById(cafe));
+        model.addAttribute("cafe", cafeService.findById(cafe));
         model.addAttribute("url", "/cafe/" + cafe + "/books");
         return "bookList";
     }

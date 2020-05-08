@@ -1,7 +1,7 @@
 package com.bookshop.controller;
 
 import com.bookshop.model.entity.Book;
-import com.bookshop.service.AuthorService;
+import com.bookshop.service.CafeService;
 import com.bookshop.service.BookService;
 import com.bookshop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.Map;
 public class BookController {
 
     @Autowired
-    private AuthorService authorService;
+    private CafeService cafeService;
 
     @Autowired
     private BookService bookService;
@@ -44,14 +44,14 @@ public class BookController {
     public String bookCreate(@RequestParam MultipartFile image,
                              @RequestParam Map<String, String> form,
                              Model model, @PageableDefault(value = 12) Pageable pageable) throws IOException {
-        if (!authorService.findBySurnameAndName(form.get("authorSurname").trim(), form.get("authorName").trim()).isPresent()) {
+        if (!cafeService.findBySurnameAndName(form.get("authorSurname").trim(), form.get("authorName").trim()).isPresent()) {
             model.addAttribute("url", "/book");
             model.addAttribute("page", bookService.findAllPage(pageable));
             model.addAttribute("categories", categoryService.findAll());
             model.addAttribute("authorNotFoundError", "");
             return "bookList";
         }
-        bookService.create(Double.parseDouble(form.get("price")), form.get("titleRu").trim(), form.get("titleEn").trim(), form.get("description").trim(), authorService.findBySurnameAndName(form.get("authorSurname").trim(), form.get("authorName").trim()).get(), form, image);
+        bookService.create(Double.parseDouble(form.get("price")), form.get("titleRu").trim(), form.get("titleEn").trim(), form.get("description").trim(), cafeService.findBySurnameAndName(form.get("authorSurname").trim(), form.get("authorName").trim()).get(), form, image);
         model.addAttribute("bookAddSuccess", "");
         model.addAttribute("url", "/book");
         model.addAttribute("page", bookService.findAllPage(pageable));
@@ -76,7 +76,7 @@ public class BookController {
             @RequestParam MultipartFile image,
             @RequestParam Map<String, String> form,
             @RequestParam("bookId") Book book) throws IOException {
-        if (!authorService.findBySurnameAndName(form.get("authorSurname"), form.get("authorName")).isPresent()) {
+        if (!cafeService.findBySurnameAndName(form.get("authorSurname"), form.get("authorName")).isPresent()) {
             return "redirect:/book/admin/" + book.getId();
         }
         bookService.update(book, Double.parseDouble(form.get("price")),

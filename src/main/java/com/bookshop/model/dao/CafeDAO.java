@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface AuthorDAO extends CrudRepository<Cafe, Long> {
+public interface CafeDAO extends CrudRepository<Cafe, Long> {
 
     List<Cafe> findAll();
 

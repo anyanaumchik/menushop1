@@ -27,7 +27,7 @@ public class BookService {
     private BookImageService bookImageService;
 
     @Autowired
-    private AuthorService authorService;
+    private CafeService cafeService;
 
     @Autowired
     private CategoryService categoryService;
@@ -93,8 +93,8 @@ public class BookService {
         book.setPrice(price);
         book.setTitleRu(titleRu);
         book.setTitleEn(titleEn);
-        if (authorService.findBySurnameAndName(authorSurname, authorName).isPresent())
-            book.setCafe(authorService.findBySurnameAndName(authorSurname, authorName).get());
+        if (cafeService.findBySurnameAndName(authorSurname, authorName).isPresent())
+            book.setCafe(cafeService.findBySurnameAndName(authorSurname, authorName).get());
         book.setDescription(description);
         book.getCategories().clear();
         for (String s : form.keySet()) {

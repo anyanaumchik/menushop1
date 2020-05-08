@@ -1,6 +1,6 @@
 package com.bookshop.service;
 
-import com.bookshop.model.dataService.AuthorImageDataService;
+import com.bookshop.model.dataService.CafeImageDataService;
 import com.bookshop.model.entity.Cafe;
 import com.bookshop.model.entity.AuthorImage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,31 +14,31 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class AuthorImageService {
+public class CafeImageService {
 
     @Autowired
-    private AuthorImageDataService authorImageDataService;
+    private CafeImageDataService cafeImageDataService;
 
     @Autowired
-    private AuthorService authorService;
+    private CafeService cafeService;
 
     @Value("${upload.path.cafe}")
     private String uploadPath;
 
     public void save(AuthorImage authorImage) {
-        authorImageDataService.save(authorImage);
+        cafeImageDataService.save(authorImage);
     }
 
     public List<AuthorImage> findAll() {
-        return authorImageDataService.findAll();
+        return cafeImageDataService.findAll();
     }
 
     public AuthorImage findById(long id) {
-        return authorImageDataService.findById(id);
+        return cafeImageDataService.findById(id);
     }
 
     public void deleteById(long id) {
-        authorImageDataService.deleteById(id);
+        cafeImageDataService.deleteById(id);
     }
 
     public void add(MultipartFile image, Cafe cafe) throws IOException {
@@ -55,7 +55,7 @@ public class AuthorImageService {
 //            authorImage.setAuthor(author);
             save(authorImage);
             cafe.setImage(authorImage);
-            authorService.save(cafe);
+            cafeService.save(cafe);
         }
     }
 }

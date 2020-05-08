@@ -1,7 +1,7 @@
 package com.bookshop.controller;
 
 
-import com.bookshop.service.AuthorService;
+import com.bookshop.service.CafeService;
 import com.bookshop.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,12 @@ public class MainController {
     private BookService bookService;
 
     @Autowired
-    private AuthorService authorService;
+    private CafeService cafeService;
 
     @GetMapping("/")
     public String main(Model model) {
         model.addAttribute("books", bookService.getLastBooks());
-        model.addAttribute("authors", authorService.findAll());
+        model.addAttribute("authors", cafeService.findAll());
         return "main";
     }
 

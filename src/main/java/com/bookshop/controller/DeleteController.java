@@ -1,6 +1,6 @@
 package com.bookshop.controller;
 
-import com.bookshop.service.AuthorService;
+import com.bookshop.service.CafeService;
 import com.bookshop.service.BookService;
 import com.bookshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class DeleteController {
     private BookService bookService;
 
     @Autowired
-    private AuthorService authorService;
+    private CafeService cafeService;
 
     @Autowired
     private UserService userService;
@@ -31,7 +31,7 @@ public class DeleteController {
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping("/cafe/admin/delete/{id}")
     public String deleteAuthor(@PathVariable long id) {
-        authorService.deleteById(id);
+        cafeService.deleteById(id);
         return "redirect:/author";
     }
 
