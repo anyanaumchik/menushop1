@@ -2,14 +2,14 @@
 <#include "locale/locale.ftl">
 <@c.page>
     ${author_edit_author_edit}
-    <form action="/author/admin/{authorId}" method="post" enctype="multipart/form-data">
+    <form action="/cafe/admin/{cafeId}" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3 mt-2">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">${author_edit_author_surname}</span>
             </div>
             <input type="text" name="surname" placeholder="${author_edit_author_surname}"
                    class="form-control" aria-label="${author_edit_author_surname}"
-                   aria-describedby="basic-addon1" value="${author.surname}">
+                   aria-describedby="basic-addon1" value="${cafe.surname}">
         </div>
         <div class="input-group mb-3 mt-2">
             <div class="input-group-prepend">
@@ -17,7 +17,7 @@
             </div>
             <input type="text" name="name" placeholder="${author_edit_author_name}"
                    class="form-control" aria-label="${author_edit_author_name}"
-                   aria-describedby="basic-addon1" value="${author.name}">
+                   aria-describedby="basic-addon1" value="${cafe.name}">
         </div>
         <#--    <div><label>${author_edit_author_surname}<input type="text" name="surname" value="${author.surname}"></label></div>-->
         <#--    <div><label>${author_edit_author_name}<input type="text" name="name" value="${author.name}"></label></div>-->
@@ -32,16 +32,16 @@
                 <label class="custom-file-label" for="inputGroupFile01">${book_choose_file}</label>
             </div>
         </div>
-        <#if author.image??>
-            <img src="/${author.image.authorImage}" width="500">
+        <#if cafe.image??>
+            <img src="/${cafe.image.authorImage}" width="500">
         </#if>
         <br>
         <br>
-        <input type="hidden" value="${author.id}" name="authorId">
+        <input type="hidden" value="${cafe.id}" name="cafeId">
         <button type="submit" class="btn btn-primary">${author_edit_save}</button>
     </form>
     <br>
-    <form method="post" action="/author/admin/delete/${author.id}">
+    <form method="post" action="/cafe/admin/delete/${cafe.id}">
         <button type="submit" class="btn btn-primary">${book_delete}</button>
     </form>
 </@c.page>

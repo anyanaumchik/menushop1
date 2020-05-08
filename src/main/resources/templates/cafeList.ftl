@@ -8,8 +8,8 @@
         }
     </style>
     <#if isAdmin>
-        <#if authorError??>
-            ${authorError}
+        <#if cafeError??>
+            ${cafeError}
         </#if>
         <div>
             <form method="post" enctype="multipart/form-data">
@@ -47,23 +47,23 @@
     </#if>
     <form>
         <div class="card-columns">
-            <#list authors as author>
+            <#list cafes as cafe>
 
                 <div class="card m-2" <#--style="width: 20rem;"-->>
-                    <#if author.image??>
-                        <img class="card-img-top" src="/${author.image.authorImage}" height="370">
+                    <#if cafe.image??>
+                        <img class="card-img-top" src="/${cafe.image.authorImage}" height="370">
                     <#else >
                         <img src="/authorImageNotFound.png" width="260.5" height="370">
                     </#if>
                     <div class="card-body">
-                        <a class="card-title m-2">${author.surname} ${author.name}</a>
+                        <a class="card-title m-2">${cafe.surname} ${cafe.name}</a>
                         <br>
                         <div class="card-text">
-                            <a href="/author/${author.id}/books"
+                            <a href="/cafe/${cafe.id}/books"
                                class="btn btn-primary m-2">${author_list_author_book_list}</a>
                             <br>
                             <#if isAdmin>
-                                <a href="/author/admin/${author.id}" class="btn btn-primary m-2">${author_list_edit}</a>
+                                <a href="/cafe/admin/${cafe.id}" class="btn btn-primary m-2">${author_list_edit}</a>
                             </#if>
                         </div>
                     </div>
