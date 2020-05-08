@@ -35,13 +35,13 @@
             </#if>
         </#list>
     </div>
-    ${filter_authors}
+    ${filter_cafe}
     <div class="card-deck m-5">
         <#list cafes as cafe>
             <#if cafeIndex<4>
                 <div class="card">
                     <#assign cafeIndex++>
-                    <#if author.image??>
+                    <#if cafe.image??>
                         <img src="/${cafe.image.authorImage}" height="226"/>
                     <#else >
                         <img src="/authorImageNotFound.png" height="226">

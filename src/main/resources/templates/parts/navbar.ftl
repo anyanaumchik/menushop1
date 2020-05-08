@@ -26,7 +26,7 @@
                 <a class="nav-link" href="/book">${navbar_books}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/cafe">${navbar_authors}</a>
+                <a class="nav-link" href="/cafe">${navbar_cafes}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/category">${navbar_categories}</a>
