@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Shop</title>
+    <title>Dishes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -41,8 +41,8 @@
 <#include "locale/locale.ftl">
 <@f.footer>
     <div class="container center mt-5">
-        ${admin_user_basket_book_in_cart}
-        <#--    Book in Cart-->
+        ${admin_user_basket_dish_in_cart}
+
         <form id="approvedDish">
             <table class="table table-bordered">
                 <thead>
@@ -71,7 +71,7 @@
             <a>${admin_user_basket_total_price} ${price}</a>
             <br>
             <br>
-            ${admin_user_basket_book_in_processing}
+            ${admin_user_basket_dish_in_processing}
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -111,7 +111,7 @@
 <input type="hidden" id="dishId" value="${dishId}">
 <div id="AddOnProcessing" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
      role="alert">
-    <strong>${success}</strong><br>${admin_user_basket_book_approved}
+    <strong>${success}</strong><br>${admin_user_basket_dish_in_processing}
 </div>
 <script>
     function editCurrentId(id) {

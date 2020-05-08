@@ -31,7 +31,7 @@
     <#assign index=0>
 <#--    <#assign spring=JspTaglibs["http://www.springframework.org/tags"]>-->
     <#assign currentId=0>
-    ${filter_books}
+    ${filter}
 <#--    <@spring.message code="filter.dishes"/>-->
     <#if dishes?? && dishes?size!=0>
         <div class="ml-5 mr-5">
@@ -43,11 +43,11 @@
                             <#if dish.image??>
                             <p><img src="/${dish.image.bookImage}" class="leftimg" width="96" height="125">
                                 <#else>
-                            <p><img src="/bookImageNotFound.jpg" class="leftimg" width="96" height="125">
+                            <p><img src="/dishImageNotFound.jpg" class="leftimg" width="96" height="125">
                                 </#if>
-                                ${book_author}: ${dish.cafe.name} ${dish.cafe.surname}
+                                ${author}: ${dish.cafe.name} ${dish.cafe.surname}
                                 <br>
-                                ${book_title}
+                                ${title}
                                 <#if .lang=="en">
                                     ${dish.titleEn}
                                 <#elseif .lang=="ru">
@@ -64,26 +64,26 @@
                             </p>
                             <div class="card-footer text-muted text-right">
                                 <a href="/dish/${dish.id}"
-                                   class="btn btn-primary ml-2 leftText">${book_view}</a>
+                                   class="btn btn-primary ml-2 leftText">${view}</a>
                                 <#if isAdmin>
                                     <a href="/dish/admin/${dish.id}"
-                                       class="btn btn-primary ml-2 leftText">${book_edit}</a>
+                                       class="btn btn-primary ml-2 leftText">${edit}</a>
                                 </#if>
                                 <br>
-                                <b class="mr-2">${book_price}: ${dish.price} BYN</b>
+                                <b class="mr-2">${price}: ${dish.price} BYN</b>
                                 <#if name!="unknown">
                                 </#if>
                             </div>
                         </div>
                     </#list>
                 </div>
-                <input type="hidden" id="bookId" value="${currentId}">
+                <input type="hidden" id="dishId" value="${currentId}">
             </form>
         </div>
     <#else>
-        <h5>${filter_books_not}</h5>
+        <h5>${filter_not}</h5>
     </#if>
-    ${filter_authors}
+    ${filter_cafe_not}
     <#if cafes?? && cafes?size!=0>
         <div class="card-columns">
             <#list cafes as cafe>
@@ -143,7 +143,7 @@
                                             ${dish.titleRu}
                                         </#if>
                                         <br>
-                                        <a href="/dish/${dish.id}" class="right">Book</a>
+                                        <a href="/dish/${dish.id}" class="right">Dish</a>
                                     </div>
                                     <#assign index++>
                                 </#if>

@@ -52,8 +52,8 @@ public class DishController {
             return "dishList";
         }
         bookService.create(Double.parseDouble(form.get("price")), form.get("titleRu").trim(), form.get("titleEn").trim(), form.get("description").trim(), cafeService.findByName(form.get("cafeName").trim()).get(), form, image);
-        model.addAttribute("bookAddSuccess", "");
-        model.addAttribute("url", "/book");
+        model.addAttribute("dishAddSuccess", "");
+        model.addAttribute("url", "/dish");
         model.addAttribute("page", bookService.findAllPage(pageable));
         model.addAttribute("categories", categoryService.findAll());
         return "dishList";

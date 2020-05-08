@@ -11,7 +11,7 @@
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Book Shop</a>
+    <a class="navbar-brand" href="/">Meny.by</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
                 <a class="nav-link" href="/">${navbar_home}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/dish">${navbar_books}</a>
+                <a class="nav-link" href="/dish">${navbar_dishes}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/cafe">${navbar_cafes}</a>

@@ -8,7 +8,7 @@ $(document).ready(
 
         function ajaxPost() {
             var formData = {
-                id: $("#bookId").val()
+                id: $("#dishId").val()
             }
             $.ajax({
                 type: "POST",

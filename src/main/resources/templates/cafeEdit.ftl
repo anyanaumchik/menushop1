@@ -16,12 +16,12 @@
         <#--    <div><label><input type="file" name="image"></label></div>-->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupFileAddon01">${book_image}</span>
+                <span class="input-group-text" id="inputGroupFileAddon01">${image}</span>
             </div>
             <div class="custom-file">
                 <input type="file" name="image" class="custom-file-input" id="inputGroupFile01"
                        aria-describedby="inputGroupFileAddon01">
-                <label class="custom-file-label" for="inputGroupFile01">${book_choose_file}</label>
+                <label class="custom-file-label" for="inputGroupFile01">${choose_file}</label>
             </div>
         </div>
         <#if cafe.image??>
@@ -34,6 +34,6 @@
     </form>
     <br>
     <form method="post" action="/cafe/admin/delete/${cafe.id}">
-        <button type="submit" class="btn btn-primary">${book_delete}</button>
+        <button type="submit" class="btn btn-primary">${delete}</button>
     </form>
 </@c.page>

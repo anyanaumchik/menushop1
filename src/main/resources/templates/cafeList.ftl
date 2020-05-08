@@ -47,14 +47,14 @@
                     <#if cafe.image??>
                         <img class="card-img-top" src="/${cafe.image.authorImage}" height="370">
                     <#else >
-                        <img src="/authorImageNotFound.png" width="260.5" height="370">
+                        <img src="/cafeImageNotFound.png" width="260.5" height="370">
                     </#if>
                     <div class="card-body">
                         <a class="card-title m-2"> ${cafe.name}</a>
                         <br>
                         <div class="card-text">
                             <a href="/cafe/${cafe.id}/dishes"
-                               class="btn btn-primary m-2">${author_list_author_book_list}</a>
+                               class="btn btn-primary m-2">${author_list_author_dish_list}</a>
                             <br>
                             <#if isAdmin>
                                 <a href="/cafe/admin/${cafe.id}" class="btn btn-primary m-2">${author_list_edit}</a>

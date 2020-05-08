@@ -7,7 +7,7 @@ $(document).ready(
         });
 
         function ajaxPost() {
-            var book = {
+            var dish = {
                 id: $("#dishId").val()
             }
             $.ajax({
@@ -17,7 +17,7 @@ $(document).ready(
                 success: function () {
                     showSuccessMessage1();
                 },
-                data: JSON.stringify(book),
+                data: JSON.stringify(dish),
                 dataType: 'json'
             });
         }

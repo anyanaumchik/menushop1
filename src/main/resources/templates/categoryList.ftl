@@ -49,7 +49,8 @@
         <div id="accordion">
 
             <#list categories as category>
-<#--                <#assign dishes=category.getBooks()>-->
+
+
 
                 <div class="card my-3">
                     <div class="card-header" id="heading${category.id}">
@@ -73,19 +74,19 @@
                                     <#if index<5>
                                         <div class="card">
                                             ${categor_list_author}:<br>
-                                            ${categor_list_title_book}:
+                                            ${categor_list_title}:
                                             <#if .lang=="en">
                                                 ${dish.titleEn}
                                             <#elseif .lang=="ru">
                                                 ${dish.titleRu}
                                             </#if>
                                             <br>
-                                            <a href="/dish/${dish.id}" class="right">${categor_list_book_view}</a>
+                                            <a href="/dish/${dish.id}" class="right">${categor_list_dishes_view}</a>
                                         </div>
                                         <#assign index++>
                                     </#if>
                                 </#list>
-                                <a href="/category/${category.id}" methods="get">${categor_list_all_books}</a>
+                                <a href="/category/${category.id}" methods="get">${categor_list_all_dishes}</a>
                             <#else>
                                 ${categor_list_books_not_found}
                             </#if>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Shop</title>
+    <title>Dishes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -19,8 +19,8 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="/deleteFromBasket.js"></script>
-    <script type="text/javascript" src="/bookToProcessing.js"></script>
-    <script type="text/javascript" src="/allBookToProcessing.js"></script>
+    <script type="text/javascript" src="/dishToProcessing.js"></script>
+    <script type="text/javascript" src="/allDishToProcessing.js"></script>
     <style>
         #DeleteFromBasketSuccess {
             position: fixed;
@@ -44,7 +44,7 @@
             text-align: center;
         }
 
-        #BookAllProcessing {
+        #DishAllProcessing {
             position: fixed;
             right: 0;
             top: 50px;
@@ -109,13 +109,13 @@
 
 
         </form>
-        <form id="bookToProcessing">
-            <button id="bookToProcessingButton" type="submit" hidden="hidden"></button>
+        <form id="dishToProcessing">
+            <button id="dishToProcessingButton" type="submit" hidden="hidden"></button>
         </form>
         <br>
         <a>${my_basket_total_price} ${price}</a>
         <br>
-        <form id="AllBookToProcessing">
+        <form id="AlldishToProcessing">
             <button type="submit"
                     class="btn btn-primary" <#if price==0> disabled="disabled" </#if>>${my_basket_sent_all_to_processing}
             </button>
@@ -124,10 +124,10 @@
     </#if>
     <br>
     <br>
-    <input id="bookId" value="${currentId}" type="hidden">
-    <input id="bookIdFor" value="${currentIdForProcessing}" type="hidden">
+    <input id="dishId" value="${currentId}" type="hidden">
+    <input id="dishIdFor" value="${currentIdForProcessing}" type="hidden">
     <#if approvedDishes?size!=0>
-        ${my_basket_approved_books}
+        ${my_basket_approved}
 
         <table class="table table-bordered ">
             <thead>
@@ -157,27 +157,27 @@
     </@f.footer>
     <div id="AddOnProcessing" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
          role="alert">
-        <strong>${success}</strong><br> ${my_basket_book_sent_to_processing}
+        <strong>${success}</strong><br> ${my_basket_sent_to_processing}
     </div>
     <div id="DeleteFromBasketSuccess" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
          role="alert">
-        <strong>${success}</strong><br> ${my_basket_book_deleted_from_basket}
+        <strong>${success}</strong><br> ${my_basket_deleted_from_basket}
     </div>
-    <div id="BookAllProcessing" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
+    <div id="DishAllProcessing" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
          role="alert">
-        <strong>${success}</strong> <br>${my_basket_all_books_sent_to_processing}
+        <strong>${success}</strong> <br>${my_basket_all_sent_to_processing}
     </div>
 
     <script>
         function editCurrentId(id) {
-            document.getElementById("bookId").value = id;
+            document.getElementById("dishId").value = id;
             document.getElementById("qwe" + id).setAttribute("disabled", "disabled");
         }
 
         function editCurrentIdFor(id) {
-            document.getElementById("bookIdFor").value = id;
+            document.getElementById("dishIdFor").value = id;
             document.getElementById(id).setAttribute("disabled", "disabled");
-            document.getElementById("bookToProcessingButton").click();
+            document.getElementById("dishToProcessingButton").click();
         }
     </script>
 </body>

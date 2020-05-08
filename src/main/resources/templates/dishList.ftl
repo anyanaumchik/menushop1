@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Book Shop</title>
+    <title>Dishes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!-- Bootstrap CSS -->
@@ -90,7 +90,7 @@
         <#assign sum=0>
         <#assign currentId=0>
         <h5 align="center"> <#if categoryPage??>
-            ${book_page_category}
+            ${page_category}
             <#--        <@spring.message code="dish.page.category"/>-->
             <#if .lang=="en">
                 ${category.titleEn}
@@ -98,28 +98,28 @@
                 ${category.titleRu}
             </#if>
             <#elseif authorPage??>
-                ${book_page_author}
+                ${page_author}
             <#--        <@spring.message code="dish.page.cafe"/>-->
                 ${cafe.name}
             <#else >
 
         </h5>
         <#if isAdmin>
-            <#if bookAddSuccess??>
-                ${book_book_add_success}
+            <#if dishAddSuccess??>
+                ${add_success}
             </#if>
             <#if priceError??>
-                ${book_price_error}
+                ${price_error}
             </#if>
             <#if cafeNotFoundError??>
-                ${book_error_author_not_Found}
+                ${error_author_not_Found}
             </#if>
             <div id="accordion">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
                                 aria-expanded="true" aria-controls="collapseOne">
-                            ${book_add_book}
+                            ${add_dish}
                         </button>
                     </div>
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -128,26 +128,26 @@
                             <form method="post" action="/dish<#--/admin/create-->" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">${book_price}</span>
+                                        <span class="input-group-text" id="basic-addon1">${price}</span>
                                     </div>
-                                    <input type="number" step="0.01" name="price" placeholder="${book_price}"
-                                           class="form-control" aria-label="${book_price}"
+                                    <input type="number" step="0.01" name="price" placeholder="${price}"
+                                           class="form-control" aria-label="${price}"
                                            aria-describedby="basic-addon1"/>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">${book_title_ru}</span>
+                                        <span class="input-group-text" id="basic-addon1">${title_ru}</span>
                                     </div>
                                     <input type="text" name="titleRu" class="form-control"
-                                           placeholder="${book_title_ru}" aria-label="${book_title_ru}"
+                                           placeholder="${title_ru}" aria-label="${title_ru}"
                                            aria-describedby="basic-addon1"/>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">${book_title_en}</span>
+                                        <span class="input-group-text" id="basic-addon1">${title_en}</span>
                                     </div>
                                     <input type="text" name="titleEn" class="form-control"
-                                           placeholder="${book_title_en}" aria-label="${book_title_en}"
+                                           placeholder="${title_en}" aria-label="${title_en}"
                                            aria-describedby="basic-addon1"/>
                                 </div>
 
@@ -161,28 +161,22 @@
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">${book_description}</span>
+                                        <span class="input-group-text">${description}</span>
                                     </div>
                                     <textarea name="description" class="form-control"
                                               aria-label="description"></textarea>
                                 </div>
-                                <#--                            <input type="number" step="0.01" name="price" placeholder=${book_price}>-->
-                                <#--                            <input type="text" name="titleRu" placeholder="${book_title_ru}">-->
-                                <#--                            <input type="text" name="titleEn" placeholder="${book_title_en}">-->
-                                <#--                            <input type="text" name="authorSurname" placeholder="${author_surname}">-->
-                                <#--                            <input type="text" name="cafeName" placeholder="${author_name}">-->
-                                <#--                            <textarea class="mt-1" maxlength="1000" rows="10" cols="90"-->
-                                <#--                                      name="description"></textarea>-->
+
                                 <br/>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01">${book_image}</span>
+                                        <span class="input-group-text" id="inputGroupFileAddon01">${image}</span>
                                     </div>
                                     <div class="custom-file">
                                         <input type="file" name="image" class="custom-file-input" id="inputGroupFile01"
                                                aria-describedby="inputGroupFileAddon01"/>
                                         <label class="custom-file-label"
-                                               for="inputGroupFile01">${book_choose_file}</label>
+                                               for="inputGroupFile01">${choose_file}</label>
                                     </div>
                                 </div>
                                 <#--                            <input type="file" name="image">-->
@@ -192,7 +186,7 @@
                                             <button class="btn btn-link" type="button" data-toggle="collapse"
                                                     data-target="#collapseTwo"
                                                     aria-expanded="true" aria-controls="collapseOne">
-                                                ${book_add_category}
+                                                ${add_category}
                                             </button>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
@@ -217,14 +211,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary mt-2">${book_add}</button>
+                                <button type="submit" class="btn btn-primary mt-2">${add}</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </#if>
-    <#--        <div>${book_list}</div>-->
+
         </#if>
     </div>
     <#if page.numberOfElements!=0>
@@ -243,12 +237,12 @@
                             <p><a href="/dish/${dish.id}"><img src="/${dish.image.bookImage}" class="leftimg"
                                                                width="96" height="125"/></a>
                                 <#else>
-                            <p><a href="/dish/${dish.id}"><img src="/bookImageNotFound.jpg" class="leftimg"
+                            <p><a href="/dish/${dish.id}"><img src="/dishImageNotFound.jpg" class="leftimg"
                                                                width="96" height="125"/></a>
                                 </#if>
-                                <#--${book_author}:--> <i>${dish.cafe.name} </i>
+                               <i>${dish.cafe.name} </i>
                                 <br/>
-                                <#--                                ${book_title}:-->
+
 
                                 <b><#if .lang=="en">
                                         ${dish.titleEn}
@@ -273,18 +267,15 @@
                             </p>
                             <div class="card-footer text-muted text-right">
                                 <a href="/dish/${dish.id}"
-                                   class="btn btn-primary ml-2 leftText">${book_view}</a>
-                                <#--                                <#if isAdmin>-->
-                                <#--                                    <a href="/dish/admin/${dish.id}"-->
-                                <#--                                       class="btn btn-primary ml-2 leftText">${book_edit}</a>-->
-                                <#--                                </#if>-->
+                                   class="btn btn-primary ml-2 leftText">${view}</a>
 
-                                <b class="mr-2">${book_price}: ${dish.price} BYN</b>
+
+                                <b class="mr-2">${price}: ${dish.price} BYN</b>
                                 <br/>
 
                                 <button type="submit" class="btn btn-primary" onclick="editCurrentId(${dish.id})"
                                         <#if name="unknown">disabled="disabled"</#if>>
-                                    ${book_basket_add}
+                                    ${basket_add}
                                 </button>
 
 
@@ -293,24 +284,24 @@
                     </#list>
 
                 </div> <@p.pager url page />
-                <input type="hidden" id="bookId" value="${currentId}"/>
+                <input type="hidden" id="dishId" value="${currentId}"/>
             </form>
         </div>
     <#else>
         <div class="container">
             <br/>
-            <h5 align="center">Books not found</h5>
+            <h5 align="center">Dishes not found</h5>
         </div>
     </#if>
 
 </@f.footer>
 <div id="addingToCartSuccess" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
      role="alert">
-    <strong>Success</strong><br> ${book_basket_add_alert}</div>
+    <strong>Success</strong><br> ${basket_add_alert}</div>
 
 <script>
     function editCurrentId(id) {
-        document.getElementById("bookId").value = id;
+        document.getElementById("dishId").value = id;
     }
 </script>
 </body>

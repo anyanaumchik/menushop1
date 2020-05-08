@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Shop</title>
+    <title>Dishes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -41,12 +41,12 @@
         <#if dish.image??>
         <p><img src="/${dish.image.bookImage}" align="left" class="m-2" width="300" height="400"/>
             <#else>
-        <p><img src="/bookImageNotFound.jpg" align="left" class="m-2" width="300" height="400"/>
+        <p><img src="/dishImageNotFound.jpg" align="left" class="m-2" width="300" height="400"/>
             </#if>
         <div class="mt-5 m-5">
-            ${book_author}: ${dish.cafe.name}
+            ${cafe}: ${dish.cafe.name}
             <br>
-            ${book_title}:
+            ${title}:
             <#if .lang=="en">
                 ${dish.titleEn}
             <#elseif .lang=="ru">
@@ -61,16 +61,16 @@
                 </#if>
             </div>
             <br>
-            <b class="mr-2">${book_price}: ${dish.price} BYN</b>
+            <b class="mr-2">${price}: ${dish.price} BYN</b>
             <br>
             <button type="submit" class="btn btn-primary" onclick=editCurrentId(${dish.id})
                     <#if name="unknown">disabled="disabled"</#if>>
-                ${book_basket_add}
+                ${basket_add}
             </button>
 
             <#if isAdmin>
                 <a href="/dish/admin/${dish.id}"
-                   class="btn btn-primary ml-2 leftText">${book_edit}</a>
+                   class="btn btn-primary ml-2 leftText">${edit}</a>
             </#if>
 
             <input type="hidden" id="bookId" value="${dish.id}">
@@ -79,6 +79,6 @@
     </div></@f.footer>
 <div id="addingToCartSuccess" class="alert alert-success col-lg-2 col-md-3 col-sm-3 col-xs-4"
      role="alert">
-    <strong>${success}</strong> ${book_basket_add_alert}
+    <strong>${success}</strong> ${basket_add_alert}
 </body>
 </html>

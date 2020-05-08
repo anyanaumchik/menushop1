@@ -1,7 +1,7 @@
 <#import "parts/common.ftl" as c>
 <#include "locale/locale.ftl">
 <@c.page>
-    Book Edit
+    Dish Edit
     <#assign index=0>
     <form action="/dish/admin/save" method="post" enctype="multipart/form-data">
         <#if dish.image??>
@@ -10,26 +10,26 @@
 
         <div class="input-group mb-3 mt-2">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">${book_price}</span>
+                <span class="input-group-text" id="basic-addon1">${price}</span>
             </div>
-            <input type="number" step="0.01" name="price" placeholder="${book_price}"
-                   class="form-control" aria-label="${book_price}"
+            <input type="number" step="0.01" name="price" placeholder="${price}"
+                   class="form-control" aria-label="${price}"
                    aria-describedby="basic-addon1" value="${dish.price}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">${book_title_ru}</span>
+                <span class="input-group-text" id="basic-addon1">${title_ru}</span>
             </div>
             <input type="text" name="titleRu" class="form-control"
-                   placeholder="${book_title_ru}" aria-label="${book_title_ru}"
+                   placeholder="${title_ru}" aria-label="${title_ru}"
                    aria-describedby="basic-addon1" value="${dish.titleRu}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">${book_title_en}</span>
+                <span class="input-group-text" id="basic-addon1">${title_en}</span>
             </div>
             <input type="text" name="titleEn" class="form-control"
-                   placeholder="${book_title_en}" aria-label="${book_title_en}"
+                   placeholder="${title_en}" aria-label="${title_en}"
                    aria-describedby="basic-addon1" value="${dish.titleEn}">
         </div>
         <div class="input-group mb-3">
@@ -42,7 +42,7 @@
         </div>
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">${book_description}</span>
+                <span class="input-group-text">${description}</span>
             </div>
             <textarea name="description" class="form-control"
                       aria-label="description">${dish.description}</textarea>
@@ -57,12 +57,12 @@
         <br>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupFileAddon01">${book_image}</span>
+                <span class="input-group-text" id="inputGroupFileAddon01">${image}</span>
             </div>
             <div class="custom-file">
                 <input type="file" name="image" class="custom-file-input" id="inputGroupFile01"
                        aria-describedby="inputGroupFileAddon01">
-                <label class="custom-file-label" for="inputGroupFile01">${book_choose_file}</label>
+                <label class="custom-file-label" for="inputGroupFile01">${choose_file}</label>
             </div>
         </div>
         <#--                            <input type="file" name="image">-->
@@ -72,7 +72,7 @@
                     <button class="btn btn-link" type="button" data-toggle="collapse"
                             data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseOne">
-                        ${book_add_category}
+                        ${add_category}
                     </button>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
@@ -127,11 +127,11 @@
         <#--            </#list>-->
 
         <#--        </div>-->
-        <input type="hidden" value="${dish.id}" name="bookId">
-        <button type="submit" class="btn btn-primary mt-2">${book_save}</button>
+        <input type="hidden" value="${dish.id}" name="dishId">
+        <button type="submit" class="btn btn-primary mt-2">${save}</button>
     </form>
     <br>
     <form method="post" action="/dish/admin/delete/${dish.id}">
-        <button type="submit" class="btn btn-primary">${book_delete}</button>
+        <button type="submit" class="btn btn-primary">${delete}</button>
     </form>
 </@c.page>

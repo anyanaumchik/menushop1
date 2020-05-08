@@ -1,6 +1,6 @@
 $(document).ready(
     function () {
-        $("#AllBookToProcessing").submit(function (event) {
+        $("#AllDishToProcessing").submit(function (event) {
             // Prevent the form from submitting via the browser.
             event.preventDefault();
             ajaxPost();
@@ -10,7 +10,7 @@ $(document).ready(
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "AllBookToProcessing",
+                url: "AllDishToProcessing",
                 success: function () {
                     showSuccessMessageThis();
                 },
@@ -20,9 +20,9 @@ $(document).ready(
     });
 
 function showSuccessMessageThis() {
-    $("#BookAllProcessing").fadeOut();
-    $("#BookAllProcessing").fadeIn(1000);
+    $("#DishAllProcessing").fadeOut();
+    $("#DishAllProcessing").fadeIn(1000);
     setTimeout(function () {
-        $("#BookAllProcessing").fadeOut(1000);
+        $("#DishAllProcessing").fadeOut(1000);
     }, 3000);
 }

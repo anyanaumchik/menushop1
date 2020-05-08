@@ -20,7 +20,7 @@
                 <td>
                     <#if user.cart.dishesInProcessing?size!=0>
                         <i>
-                            ${user_list_have_book_to_approve}
+                            ${user_list_have_to_approve}
                         </i>
                     <#--                    <#else >-->
                     <#--                        Don't have dish to approve-->

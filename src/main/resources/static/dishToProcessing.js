@@ -1,6 +1,6 @@
 $(document).ready(
     function () {
-        $("#bookToProcessing").submit(function (event) {
+        $("#dishToProcessing").submit(function (event) {
             // Prevent the form from submitting via the browser.
             event.preventDefault();
             ajaxPost();
@@ -8,12 +8,12 @@ $(document).ready(
 
         function ajaxPost() {
             var formData = {
-                id: $("#bookIdFor").val()
+                id: $("#dishIdFor").val()
             }
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "bookToProcessing",
+                url: "dishToProcessing",
                 success: function () {
                     showSuccessMessage1();
                 },
