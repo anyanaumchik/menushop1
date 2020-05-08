@@ -56,7 +56,7 @@ filter_categories_not="Категории не найдены"
 account_basket="Моя корзина"
 account_configuration="Изменить конфигурацию"
 account_delete="Удалить аккаунт"
-<#--    #author-->
+<#--    #cafe-->
 author_surname="Фамилия автора"
 author_name="Имя автора"
 <#--    #book page-->
@@ -91,12 +91,12 @@ admin_user_basket_total_price="Общая цена"
 admin_user_basket_book_in_processing="Книги в обработке"
 admin_user_basket_book_approved="Книга обобрена"
 admin_user_basket_approved="Одобрить"
-<#--    author edit-->
+<#--    cafe edit-->
 author_edit_author_edit="Редактировать автора"
 author_edit_author_surname="Фамилия автора"
 author_edit_author_name="Имя автора"
 author_edit_save="Сохранить"
-<#--    author list-->
+<#--    cafe list-->
 author_list_author_surname="Фамилия Автора"
 author_list_author_name="Имя автора"
 author_list_add="Добавить"

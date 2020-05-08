@@ -1,7 +1,7 @@
 package com.bookshop.controller;
 
 import com.bookshop.exception.PageNotFoundException;
-import com.bookshop.model.entity.Author;
+import com.bookshop.model.entity.Cafe;
 import com.bookshop.service.AuthorImageService;
 import com.bookshop.service.AuthorService;
 import com.bookshop.service.BookService;
@@ -35,10 +35,10 @@ public class AuthorController {
     }
 
     @PostMapping("admin/{authorId}")
-    public String authorSaveEditedInformation(@RequestParam String surname, @RequestParam String name, @RequestParam("authorId") Author author,
+    public String authorSaveEditedInformation(@RequestParam String surname, @RequestParam String name, @RequestParam("authorId") Cafe cafe,
                                               @RequestParam MultipartFile image) throws IOException {
         try {
-            authorService.update(surname, name, author, image);
+            authorService.update(surname, name, cafe, image);
         } catch (Exception e) {
             throw new PageNotFoundException();
         }

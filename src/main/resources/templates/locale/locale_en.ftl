@@ -56,12 +56,12 @@ filter_categories_not="Categories not found"
 account_basket="My cart"
 account_configuration="Edit configuration"
 account_delete="Delete account"
-<#--    #author-->
+<#--    #cafe-->
 author_surname="Author Surname"
 author_name="Author name"
 <#--    #book page-->
 book_page_category="Books of category"
-book_page_author="Books of author"
+book_page_author="Books of cafe"
 <#--    #account configuration page-->
 account_configuration_username_error="Username can not be empty"
 account_configuration_username_exist_error="Username is already in use"
@@ -91,12 +91,12 @@ admin_user_basket_total_price="Total Price"
 admin_user_basket_book_in_processing="Book in processing"
 admin_user_basket_book_approved="Book approved"
 admin_user_basket_approved="Approved"
-<#--    author edit-->
+<#--    cafe edit-->
 author_edit_author_edit="Author edit"
 author_edit_author_surname="Author surname"
 author_edit_author_name="Author name"
 author_edit_save="Save"
-<#--    author list-->
+<#--    cafe list-->
 author_list_author_surname="Author surname"
 author_list_author_name="Author name"
 author_list_add="Add"

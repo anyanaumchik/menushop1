@@ -60,7 +60,7 @@
                             <#elseif .lang=="ru">
                                 ${book.titleRu}
                             </#if></td>
-                        <td>${book.author.surname} ${book.author.name}</td>
+                        <td>${book.cafe.surname} ${book.cafe.name}</td>
 
                     </tr>
                     <#assign price += book.price>
@@ -90,7 +90,7 @@
                             <#elseif .lang=="ru">
                                 ${bookInProcessing.titleRu}
                             </#if></td>
-                        <td>${bookInProcessing.author.surname} ${bookInProcessing.author.name}</td>
+                        <td>${bookInProcessing.cafe.surname} ${bookInProcessing.cafe.name}</td>
                         <td>
                             <button type="submit" id="${bookInProcessing.id}" class="btn btn-primary"
                                     onclick=editCurrentId(${bookInProcessing.id})>

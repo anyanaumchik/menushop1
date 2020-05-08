@@ -5,7 +5,7 @@ insert into user(id, active, email, password, username, fk_basket_id, fk_role_id
 VALUES (1, true, 'user@gmail.com', 'user', 'user', 1, 1),(2, true, 'admin@gmail.com', 'admin', 'admin', 2, 2);
 insert basket(id, fk_user_id)
 VALUES (1, 1),(2, 2);
-insert into author(id, name, surname)
+insert into cafe(id, name, surname)
 VALUES (1, 'Анджей', 'Сапковский'),(2, 'Стивен', 'Кинг'),(3, 'Джордж', 'Оруэлл'),(4, 'Эрнест', 'Хемингуэй'),(5, 'Джоан', 'Роулинг'),(6, 'Фёдор', 'Достоевский'),(7, 'Роберт', 'Кийосаки');
 insert into author_image (id, image)
 VALUES (1, 'sapkowski.jpg'),(2, 'king.jpg'),(3, 'orwell.jpg'),(4, 'kheminguei.jpg'),(5, 'rouling.jpg'),(6, 'dostoevsky.jpg'),(7, 'kiyosaki.jpg');

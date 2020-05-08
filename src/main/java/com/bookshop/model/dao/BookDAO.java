@@ -1,7 +1,7 @@
 package com.bookshop.model.dao;
 
 
-import com.bookshop.model.entity.Author;
+import com.bookshop.model.entity.Cafe;
 import com.bookshop.model.entity.Book;
 import com.bookshop.model.entity.Category;
 import org.springframework.data.domain.Page;
@@ -19,7 +19,7 @@ public interface BookDAO extends CrudRepository<Book, Long> {
 
     Page<Book> findByOrderByTitleEnAsc(Pageable pageable);
 
-    Page<Book> findAllByAuthor(Author author, Pageable pageable);
+    Page<Book> findAllByCafe(Cafe cafe, Pageable pageable);
 
     Page<Book> findAllByCategories(Category category, Pageable pageable);
 

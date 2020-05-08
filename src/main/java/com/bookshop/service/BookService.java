@@ -1,7 +1,7 @@
 package com.bookshop.service;
 
 import com.bookshop.model.dataService.BookDataService;
-import com.bookshop.model.entity.Author;
+import com.bookshop.model.entity.Cafe;
 import com.bookshop.model.entity.Book;
 import com.bookshop.model.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +41,10 @@ public class BookService {
         return bookDataService.getLastBooks();
     }
 
-    public void create(double price, String titleRu, String titleEn, String description, Author author, Map<String, String> form, MultipartFile image) throws IOException {
+    public void create(double price, String titleRu, String titleEn, String description, Cafe cafe, Map<String, String> form, MultipartFile image) throws IOException {
 //        Book book = new Book(price, titleRu, titleEn, description);
         Book book = new Book(price, titleRu, titleEn, description);
-        book.setAuthor(author);
+        book.setCafe(cafe);
         List<Category> category = new ArrayList<>();
         for (String s : form.keySet()) {
             if (form.get(s).equals("on")) {
@@ -81,8 +81,8 @@ public class BookService {
         bookDataService.deleteById(id);
     }
 
-    public Page<Book> findAllByAuthor(Author author, Pageable pageable) {
-        return bookDataService.findAllByAuthor(author, pageable);
+    public Page<Book> findAllByAuthor(Cafe cafe, Pageable pageable) {
+        return bookDataService.findAllByAuthor(cafe, pageable);
     }
 
     public Page<Book> findAllByCategories(Category category, Pageable pageable) {
@@ -94,7 +94,7 @@ public class BookService {
         book.setTitleRu(titleRu);
         book.setTitleEn(titleEn);
         if (authorService.findBySurnameAndName(authorSurname, authorName).isPresent())
-            book.setAuthor(authorService.findBySurnameAndName(authorSurname, authorName).get());
+            book.setCafe(authorService.findBySurnameAndName(authorSurname, authorName).get());
         book.setDescription(description);
         book.getCategories().clear();
         for (String s : form.keySet()) {

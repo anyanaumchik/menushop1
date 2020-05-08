@@ -1,7 +1,7 @@
 package com.bookshop.service;
 
 import com.bookshop.model.dataService.AuthorImageDataService;
-import com.bookshop.model.entity.Author;
+import com.bookshop.model.entity.Cafe;
 import com.bookshop.model.entity.AuthorImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,7 +22,7 @@ public class AuthorImageService {
     @Autowired
     private AuthorService authorService;
 
-    @Value("${upload.path.author}")
+    @Value("${upload.path.cafe}")
     private String uploadPath;
 
     public void save(AuthorImage authorImage) {
@@ -41,7 +41,7 @@ public class AuthorImageService {
         authorImageDataService.deleteById(id);
     }
 
-    public void add(MultipartFile image, Author author) throws IOException {
+    public void add(MultipartFile image, Cafe cafe) throws IOException {
         if (image != null && image.getOriginalFilename() != null && !image.getOriginalFilename().isEmpty()) {
             AuthorImage authorImage = new AuthorImage();
             File uploadDir = new File(uploadPath);
@@ -54,8 +54,8 @@ public class AuthorImageService {
             authorImage.setAuthorImage(fileName);
 //            authorImage.setAuthor(author);
             save(authorImage);
-            author.setImage(authorImage);
-            authorService.save(author);
+            cafe.setImage(authorImage);
+            authorService.save(cafe);
         }
     }
 }

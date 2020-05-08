@@ -38,7 +38,7 @@
             </div>
             <input type="text" name="authorSurname" class="form-control"
                    placeholder="${author_surname}" aria-label="${author_surname}"
-                   aria-describedby="basic-addon1" value="${book.author.surname}">
+                   aria-describedby="basic-addon1" value="${book.cafe.surname}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -46,7 +46,7 @@
             </div>
             <input type="text" name="authorName" class="form-control"
                    placeholder="${author_name}" aria-label="${author_name}"
-                   aria-describedby="basic-addon1" value="${book.author.name}">
+                   aria-describedby="basic-addon1" value="${book.cafe.name}">
         </div>
         <div class="input-group">
             <div class="input-group-prepend">
@@ -110,8 +110,8 @@
 
         <#--        <input type="text" name="titleRu" value="${book.titleRu}">-->
         <#--        <input type="text" name="titleEn" value="${book.titleEn}">-->
-        <#--        <input type="text" name="authorSurname" value="${book.author.surname}">-->
-        <#--        <input type="text" name="authorName" value="${book.author.name}">-->
+        <#--        <input type="text" name="authorSurname" value="${book.cafe.surname}">-->
+        <#--        <input type="text" name="authorName" value="${book.cafe.name}">-->
         <#--        <input type="file" name="image">-->
         <#--        <#if book.image??>-->
         <#--            <img src="/img/book/${book.image.bookImage}">-->

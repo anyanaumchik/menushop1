@@ -1,7 +1,7 @@
 package com.bookshop.service;
 
 import com.bookshop.model.dataService.AuthorDataService;
-import com.bookshop.model.entity.Author;
+import com.bookshop.model.entity.Cafe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -20,11 +20,11 @@ public class AuthorService {
     @Autowired
     private AuthorImageService authorImageService;
 
-    public void save(Author author) {
-        authorDataService.save(author);
+    public void save(Cafe cafe) {
+        authorDataService.save(cafe);
     }
 
-    public Optional<Author> findBySurnameAndName(String surname, String name) {
+    public Optional<Cafe> findBySurnameAndName(String surname, String name) {
         if (!StringUtils.isEmpty(surname) && !StringUtils.isEmpty(name)) {
             return authorDataService.findBySurnameAndName(surname, name);
         } else {
@@ -32,7 +32,7 @@ public class AuthorService {
         }
     }
 
-    public List<Author> findBySurnameOrName(String surname, String name) {
+    public List<Cafe> findBySurnameOrName(String surname, String name) {
         return authorDataService.findBySurnameOrName(surname, name);
     }
 
@@ -40,31 +40,31 @@ public class AuthorService {
         authorDataService.deleteById(id);
     }
 
-    public Author findById(long id) {
+    public Cafe findById(long id) {
         return authorDataService.findById(id);
     }
 
-    public List<Author> findAll() {
+    public List<Cafe> findAll() {
         return authorDataService.findAll();
     }
 
-    public void update(String surname, String name, Author author, MultipartFile image) throws IOException {
-        author.setSurname(surname);
-        author.setName(name);
+    public void update(String surname, String name, Cafe cafe, MultipartFile image) throws IOException {
+        cafe.setSurname(surname);
+        cafe.setName(name);
         Long authorImageToDelete = null;
         if (image != null && image.getOriginalFilename() != null && !image.getOriginalFilename().isEmpty()) {
-            if (author.getImage() != null) {
-                authorImageToDelete = author.getImage().getId();
+            if (cafe.getImage() != null) {
+                authorImageToDelete = cafe.getImage().getId();
             }
-            authorImageService.add(image, author);
+            authorImageService.add(image, cafe);
             if (authorImageToDelete != null)
                 authorImageService.deleteById(authorImageToDelete);
         }
-        save(author);
+        save(cafe);
     }
 
     public void create(String surname, String name) {
-        Author author = new Author(surname, name);
-        save(author);
+        Cafe cafe = new Cafe(surname, name);
+        save(cafe);
     }
 }

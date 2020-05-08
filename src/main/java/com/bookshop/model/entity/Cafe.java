@@ -6,8 +6,8 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "AUTHOR")
-public class Author {
+@Table(name = "CAFE")
+public class Cafe {
 
     private Long id;
     private String name;
@@ -32,7 +32,7 @@ public class Author {
         return id;
     }
 
-    @OneToMany(targetEntity = Book.class, mappedBy = "author", orphanRemoval = true)
+    @OneToMany(targetEntity = Book.class, mappedBy = "cafe", orphanRemoval = true)
     public List<Book> getBooks() {
         return books;
     }
@@ -65,7 +65,7 @@ public class Author {
         this.surname = surname;
     }
 
-    public Author(Long id, String name, String surname, List<Book> books, AuthorImage image) {
+    public Cafe(Long id, String name, String surname, List<Book> books, AuthorImage image) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -73,12 +73,12 @@ public class Author {
         this.image = image;
     }
 
-    public Author(String surname, String name) {
+    public Cafe(String surname, String name) {
         this.name = name;
         this.surname = surname;
     }
 
-    public Author() {
+    public Cafe() {
 
     }
 

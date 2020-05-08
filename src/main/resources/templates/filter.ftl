@@ -45,7 +45,7 @@
                                 <#else>
                             <p><img src="/bookImageNotFound.jpg" class="leftimg" width="96" height="125">
                                 </#if>
-                                ${book_author}: ${book.author.name} ${book.author.surname}
+                                ${book_author}: ${book.cafe.name} ${book.cafe.surname}
                                 <br>
                                 ${book_title}
                                 <#if .lang=="en">
@@ -84,7 +84,7 @@
         <h5>${filter_books_not}</h5>
     </#if>
     ${filter_authors}
-    <#if authors?? && authors?size!=0>
+    <#if cafes?? && cafes?size!=0>
         <div class="card-columns">
             <#list authors as author>
 
@@ -135,7 +135,7 @@
                             <#list books as book>
                                 <#if index<5>
                                     <div class="card">
-                                        Author: ${book.author.surname} ${book.author.surname}<br>
+                                        Author: ${book.cafe.surname} ${book.cafe.surname}<br>
                                         Title:
                                         <#if .lang=="en">
                                             ${book.titleEn}

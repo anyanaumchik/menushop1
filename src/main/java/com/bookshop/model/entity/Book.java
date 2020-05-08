@@ -13,7 +13,7 @@ public class Book {
     private String titleRu;
     private String titleEn;
     private List<Category> categories;
-    private Author author;
+    private Cafe cafe;
     private BookImage image;
     private String description;
 
@@ -36,15 +36,15 @@ public class Book {
         this.image = image;
     }
 
-    @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_AUTHOR_ID")
+    @ManyToOne(targetEntity = Cafe.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_CAFE_ID")
     @Access(AccessType.PROPERTY)
-    public Author getAuthor() {
-        return author;
+    public Cafe getCafe() {
+        return cafe;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setCafe(Cafe cafe) {
+        this.cafe = cafe;
     }
 
     @ManyToMany
@@ -103,13 +103,13 @@ public class Book {
         this.titleEn = titleEn;
     }
 
-    public Book(long id, double price, String titleRu, String titleEn, List<Category> categories, Author author, BookImage image, String description) {
+    public Book(long id, double price, String titleRu, String titleEn, List<Category> categories, Cafe cafe, BookImage image, String description) {
         this.id = id;
         this.price = price;
         this.titleRu = titleRu;
         this.titleEn = titleEn;
         this.categories = categories;
-        this.author = author;
+        this.cafe = cafe;
         this.image = image;
         this.description = description;
     }

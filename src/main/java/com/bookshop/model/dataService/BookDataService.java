@@ -1,7 +1,7 @@
 package com.bookshop.model.dataService;
 
 import com.bookshop.model.dao.BookDAO;
-import com.bookshop.model.entity.Author;
+import com.bookshop.model.entity.Cafe;
 import com.bookshop.model.entity.Book;
 import com.bookshop.model.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,8 @@ public class BookDataService {
         return bookDAO.findAll();
     }
 
-    public Page<Book> findAllByAuthor(Author author, Pageable pageable) {
-        return bookDAO.findAllByAuthor(author, pageable);
+    public Page<Book> findAllByAuthor(Cafe cafe, Pageable pageable) {
+        return bookDAO.findAllByCafe(cafe, pageable);
     }
 
     public Page<Book> findAllByCategories(Category category, Pageable pageable) {

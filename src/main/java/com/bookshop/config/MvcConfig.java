@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
-    @Value("${upload.path.author}")
+    @Value("${upload.path.cafe}")
     private String uploadPathAuthor;
 
     @Value("${upload.path.book}")

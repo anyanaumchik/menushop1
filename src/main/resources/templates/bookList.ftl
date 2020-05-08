@@ -99,8 +99,8 @@
             </#if>
             <#elseif authorPage??>
                 ${book_page_author}
-            <#--        <@spring.message code="book.page.author"/>-->
-                ${author.name} ${author.surname}
+            <#--        <@spring.message code="book.page.cafe"/>-->
+                ${cafe.name} ${cafe.surname}
             <#else >
 
         </h5>
@@ -253,7 +253,7 @@
                             <p><a href="/book/${book.id}"><img src="/bookImageNotFound.jpg" class="leftimg"
                                                                width="96" height="125"/></a>
                                 </#if>
-                                <#--${book_author}:--> <i>${book.author.name} ${book.author.surname}</i>
+                                <#--${book_author}:--> <i>${book.cafe.name} ${book.cafe.surname}</i>
                                 <br/>
                                 <#--                                ${book_title}:-->
 

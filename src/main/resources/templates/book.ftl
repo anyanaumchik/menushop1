@@ -44,7 +44,7 @@
         <p><img src="/bookImageNotFound.jpg" align="left" class="m-2" width="300" height="400"/>
             </#if>
         <div class="mt-5 m-5">
-            ${book_author}: ${book.author.name} ${book.author.surname}
+            ${book_author}: ${book.cafe.name} ${book.cafe.surname}
             <br>
             ${book_title}:
             <#if .lang=="en">
