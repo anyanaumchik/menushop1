@@ -26,12 +26,12 @@ public class CafeDataService {
         cafeDAO.deleteById(id);
     }
 
-    public Optional<Cafe> findBySurnameAndName(String surname, String name) {
-        return cafeDAO.findBySurnameAndName(surname, name);
+    public Optional<Cafe> findByName(String name) {
+        return cafeDAO.findByName( name);
     }
 
     public List<Cafe> findBySurnameOrName(String surname, String name) {
-        return cafeDAO.findBySurnameOrName(surname, name);
+        return cafeDAO.findByNameOrName(name, name);
     }
 
     public void save(Cafe cafe) {

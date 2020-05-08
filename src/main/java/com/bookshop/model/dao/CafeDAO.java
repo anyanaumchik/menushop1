@@ -15,7 +15,7 @@ public interface CafeDAO extends CrudRepository<Cafe, Long> {
 
     void deleteById(long id);
 
-    Optional<Cafe> findBySurnameAndName(String surname, String name);
+    Optional<Cafe> findByName(String name);
 
-    List<Cafe> findBySurnameOrName(String surname, String name);
+    List<Cafe> findByNameOrName(String surname, String name);
 }

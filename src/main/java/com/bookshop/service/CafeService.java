@@ -24,9 +24,9 @@ public class CafeService {
         cafeDataService.save(cafe);
     }
 
-    public Optional<Cafe> findBySurnameAndName(String surname, String name) {
-        if (!StringUtils.isEmpty(surname) && !StringUtils.isEmpty(name)) {
-            return cafeDataService.findBySurnameAndName(surname, name);
+    public Optional<Cafe> findByName(String name) {
+        if (!StringUtils.isEmpty(name)) {
+            return cafeDataService.findByName( name);
         } else {
             return Optional.empty();
         }
@@ -49,7 +49,6 @@ public class CafeService {
     }
 
     public void update(String surname, String name, Cafe cafe, MultipartFile image) throws IOException {
-        cafe.setSurname(surname);
         cafe.setName(name);
         Long authorImageToDelete = null;
         if (image != null && image.getOriginalFilename() != null && !image.getOriginalFilename().isEmpty()) {
@@ -63,8 +62,8 @@ public class CafeService {
         save(cafe);
     }
 
-    public void create(String surname, String name) {
-        Cafe cafe = new Cafe(surname, name);
+    public void create(String name) {
+        Cafe cafe = new Cafe( name);
         save(cafe);
     }
 }

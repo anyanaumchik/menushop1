@@ -5,14 +5,6 @@
     <form action="/cafe/admin/{cafeId}" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3 mt-2">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">${author_edit_author_surname}</span>
-            </div>
-            <input type="text" name="surname" placeholder="${author_edit_author_surname}"
-                   class="form-control" aria-label="${author_edit_author_surname}"
-                   aria-describedby="basic-addon1" value="${cafe.surname}">
-        </div>
-        <div class="input-group mb-3 mt-2">
-            <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">${author_edit_author_name}</span>
             </div>
             <input type="text" name="name" placeholder="${author_edit_author_name}"

@@ -52,18 +52,17 @@ public class CafeController {
     }
 
     @PostMapping
-    public String addCafe(@RequestParam String surname,
-                          @RequestParam String name,
+    public String addCafe(@RequestParam String name,
                           @RequestParam MultipartFile image,
                           Model model) throws IOException {
-        if (cafeService.findBySurnameAndName(surname, name).isPresent()) {
+        if (cafeService.findByName(name).isPresent()) {
             model.addAttribute("cafeError", "cafe is already exist");
             model.addAttribute("cafes", cafeService.findAll());
 
             return "cafeList";
         }
-        cafeService.create(surname, name);
-        cafeImageService.add(image, cafeService.findBySurnameAndName(surname, name).get());
+        cafeService.create(name);
+        cafeImageService.add(image, cafeService.findByName(name).get());
         return "redirect:/cafe";
     }
 

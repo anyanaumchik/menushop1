@@ -19,13 +19,13 @@ public class FilterService {
         List<String> items = Arrays.asList(filter.split("\\s* \\s*"));
         List<Cafe> cafes = new ArrayList<>();
         if (items.size() > 1) {
-            boolean present = cafeService.findBySurnameAndName(items.get(0), items.get(1)).isPresent();
-            boolean present1 = cafeService.findBySurnameAndName(items.get(1), items.get(0)).isPresent();
+            boolean present = cafeService.findByName(items.get(0)).isPresent();
+            boolean present1 = cafeService.findByName(items.get(0)).isPresent();
             if (present) {
-                cafes.add(cafeService.findBySurnameAndName(items.get(0), items.get(1)).get());
+                cafes.add(cafeService.findByName(items.get(0)).get());
             }
             if (present1) {
-                cafes.add(cafeService.findBySurnameAndName(items.get(1), items.get(0)).get());
+                cafes.add(cafeService.findByName(items.get(0)).get());
             }
             if (!present && !present1) {
                 for (String item : items) {

@@ -47,7 +47,7 @@
                         <img src="/authorImageNotFound.png" height="226">
                     </#if>
                     <div class="card-body">
-                        <h5 class="card-title">${cafe.surname} ${cafe.name} </h5>
+                        <h5 class="card-title"> ${cafe.name} </h5>
                         <a href="/cafe/${cafe.id}/books" class="card-text">Книги</a>
                     </div>
                 </div>

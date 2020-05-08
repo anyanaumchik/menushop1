@@ -89,12 +89,12 @@ public class BookService {
         return bookDataService.findAllByCategories(category, pageable);
     }
 
-    public void update(Book book, double price, String titleEn, String titleRu, String authorSurname, String authorName, String description, Map<String, String> form, MultipartFile image) throws IOException {
+    public void update(Book book, double price, String titleEn, String titleRu, String authorName, String description, Map<String, String> form, MultipartFile image) throws IOException {
         book.setPrice(price);
         book.setTitleRu(titleRu);
         book.setTitleEn(titleEn);
-        if (cafeService.findBySurnameAndName(authorSurname, authorName).isPresent())
-            book.setCafe(cafeService.findBySurnameAndName(authorSurname, authorName).get());
+        if (cafeService.findByName(authorName).isPresent())
+            book.setCafe(cafeService.findByName(authorName).get());
         book.setDescription(description);
         book.getCategories().clear();
         for (String s : form.keySet()) {

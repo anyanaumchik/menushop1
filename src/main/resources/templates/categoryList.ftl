@@ -72,7 +72,7 @@
                                 <#list category.getBooks() as book>
                                     <#if index<5>
                                         <div class="card">
-                                            ${categor_list_author}: ${book.cafe.surname} ${book.cafe.surname}<br>
+                                            ${categor_list_author}:<br>
                                             ${categor_list_title_book}:
                                             <#if .lang=="en">
                                                 ${book.titleEn}

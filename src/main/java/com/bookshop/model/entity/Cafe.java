@@ -11,7 +11,6 @@ public class Cafe {
 
     private Long id;
     private String name;
-    private String surname;
     private List<Book> books;
     private AuthorImage image;
 
@@ -55,27 +54,15 @@ public class Cafe {
         this.name = name;
     }
 
-    @NotNull
-    @Column(name = "SURNAME")
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Cafe(Long id, String name, String surname, List<Book> books, AuthorImage image) {
+    public Cafe(Long id, String name, List<Book> books, AuthorImage image) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
         this.books = books;
         this.image = image;
     }
 
-    public Cafe(String surname, String name) {
+    public Cafe(String name) {
         this.name = name;
-        this.surname = surname;
     }
 
     public Cafe() {

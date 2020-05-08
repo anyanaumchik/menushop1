@@ -44,14 +44,14 @@ public class BookController {
     public String bookCreate(@RequestParam MultipartFile image,
                              @RequestParam Map<String, String> form,
                              Model model, @PageableDefault(value = 12) Pageable pageable) throws IOException {
-        if (!cafeService.findBySurnameAndName(form.get("authorSurname").trim(), form.get("authorName").trim()).isPresent()) {
+        if (!cafeService.findByName( form.get("authorName").trim()).isPresent()) {
             model.addAttribute("url", "/book");
             model.addAttribute("page", bookService.findAllPage(pageable));
             model.addAttribute("categories", categoryService.findAll());
             model.addAttribute("authorNotFoundError", "");
             return "bookList";
         }
-        bookService.create(Double.parseDouble(form.get("price")), form.get("titleRu").trim(), form.get("titleEn").trim(), form.get("description").trim(), cafeService.findBySurnameAndName(form.get("authorSurname").trim(), form.get("authorName").trim()).get(), form, image);
+        bookService.create(Double.parseDouble(form.get("price")), form.get("titleRu").trim(), form.get("titleEn").trim(), form.get("description").trim(), cafeService.findByName(form.get("authorName").trim()).get(), form, image);
         model.addAttribute("bookAddSuccess", "");
         model.addAttribute("url", "/book");
         model.addAttribute("page", bookService.findAllPage(pageable));
@@ -76,11 +76,11 @@ public class BookController {
             @RequestParam MultipartFile image,
             @RequestParam Map<String, String> form,
             @RequestParam("bookId") Book book) throws IOException {
-        if (!cafeService.findBySurnameAndName(form.get("authorSurname"), form.get("authorName")).isPresent()) {
+        if (!cafeService.findByName( form.get("authorName")).isPresent()) {
             return "redirect:/book/admin/" + book.getId();
         }
         bookService.update(book, Double.parseDouble(form.get("price")),
-                form.get("titleEn"), form.get("titleRu"), form.get("authorSurname"),
+                form.get("titleEn"), form.get("titleRu"),
                 form.get("authorName"), form.get("description"), form, image);
         return "redirect:/book";
     }

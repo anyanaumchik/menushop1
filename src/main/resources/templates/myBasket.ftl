@@ -87,7 +87,7 @@
                             <#elseif .lang=="ru">
                                 ${book.titleRu}
                             </#if></td>
-                        <td>${book.cafe.surname} ${book.cafe.name}</td>
+                        <td> ${book.cafe.name}</td>
                         <td>
 
                             <button type="submit" id="${book.id}" class="btn btn-primary"

@@ -100,7 +100,7 @@
             <#elseif authorPage??>
                 ${book_page_author}
             <#--        <@spring.message code="book.page.cafe"/>-->
-                ${cafe.name} ${cafe.surname}
+                ${cafe.name}
             <#else >
 
         </h5>
@@ -150,20 +150,13 @@
                                            placeholder="${book_title_en}" aria-label="${book_title_en}"
                                            aria-describedby="basic-addon1"/>
                                 </div>
+
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">${author_surname}</span>
-                                    </div>
-                                    <input type="text" name="authorSurname" class="form-control"
-                                           placeholder="${author_surname}" aria-label="${author_surname}"
-                                           aria-describedby="basic-addon1"/>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">${author_name}</span>
+                                        <span class="input-group-text" id="basic-addon1">${cafe_name}</span>
                                     </div>
                                     <input type="text" name="authorName" class="form-control"
-                                           placeholder="${author_name}" aria-label="${author_name}"
+                                           placeholder="${cafe_name}" aria-label="${cafe_name}"
                                            aria-describedby="basic-addon1"/>
                                 </div>
                                 <div class="input-group">
@@ -253,7 +246,7 @@
                             <p><a href="/book/${book.id}"><img src="/bookImageNotFound.jpg" class="leftimg"
                                                                width="96" height="125"/></a>
                                 </#if>
-                                <#--${book_author}:--> <i>${book.cafe.name} ${book.cafe.surname}</i>
+                                <#--${book_author}:--> <i>${book.cafe.name} </i>
                                 <br/>
                                 <#--                                ${book_title}:-->
 

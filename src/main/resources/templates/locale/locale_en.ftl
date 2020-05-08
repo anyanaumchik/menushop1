@@ -57,8 +57,7 @@ account_basket="My cart"
 account_configuration="Edit configuration"
 account_delete="Delete account"
 <#--    #cafe-->
-author_surname="Author Surname"
-author_name="Author name"
+cafe_name="Cafe name"
 <#--    #book page-->
 book_page_category="Books of category"
 book_page_author="Books of cafe"

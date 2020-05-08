@@ -13,13 +13,7 @@
         </#if>
         <div>
             <form method="post" enctype="multipart/form-data">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">${author_list_author_surname}</span>
-                    </div>
-                    <input type="text" name="surname" class="form-control" placeholder="${author_list_author_surname}"
-                           aria-label="surname" aria-describedby="basic-addon1">
-                </div>
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">${author_list_author_name}</span>
@@ -56,7 +50,7 @@
                         <img src="/authorImageNotFound.png" width="260.5" height="370">
                     </#if>
                     <div class="card-body">
-                        <a class="card-title m-2">${cafe.surname} ${cafe.name}</a>
+                        <a class="card-title m-2"> ${cafe.name}</a>
                         <br>
                         <div class="card-text">
                             <a href="/cafe/${cafe.id}/books"

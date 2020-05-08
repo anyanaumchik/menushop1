@@ -90,7 +90,7 @@
                             <#elseif .lang=="ru">
                                 ${bookInProcessing.titleRu}
                             </#if></td>
-                        <td>${bookInProcessing.cafe.surname} ${bookInProcessing.cafe.name}</td>
+                        <td> ${bookInProcessing.cafe.name}</td>
                         <td>
                             <button type="submit" id="${bookInProcessing.id}" class="btn btn-primary"
                                     onclick=editCurrentId(${bookInProcessing.id})>
