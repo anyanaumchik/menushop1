@@ -13,7 +13,7 @@ public class Dish {
     private String description;
     private List<Category> categories;
     private Cafe cafe;
-    private BookImage image;
+    private DishImage image;
     private String titleRu;
     private String titleEn;
 
@@ -28,11 +28,11 @@ public class Dish {
 
     @OneToOne
     @JoinColumn(name = "FK_IMAGE_ID")
-    public BookImage getImage() {
+    public DishImage getImage() {
         return image;
     }
 
-    public void setImage(BookImage image) {
+    public void setImage(DishImage image) {
         this.image = image;
     }
 
@@ -48,7 +48,7 @@ public class Dish {
     }
 
     @ManyToMany
-    @JoinTable(name = "BOOK_WITH_CATEGORY",
+    @JoinTable(name = "DISH_WITH_CATEGORY",
             joinColumns = @JoinColumn(name = "DISH_ID"),
             inverseJoinColumns = @JoinColumn(name = "CATEGORY_ID"))
     public List<Category> getCategories() {
@@ -103,7 +103,7 @@ public class Dish {
         this.titleEn = titleEn;
     }
 
-    public Dish(long id, double price, String titleRu, String titleEn, List<Category> categories, Cafe cafe, BookImage image, String description) {
+    public Dish(long id, double price, String titleRu, String titleEn, List<Category> categories, Cafe cafe, DishImage image, String description) {
         this.id = id;
         this.price = price;
         this.titleRu = titleRu;

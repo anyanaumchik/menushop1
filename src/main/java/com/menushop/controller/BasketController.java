@@ -29,28 +29,28 @@ public class BasketController {
 
     @PostMapping("/saveDish")
     public ResponseEntity<Object> addDishToCart(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Dish dish) {
-        cartService.addSingleBookToBasket(user, dishService.findById(dish.getId()));
+        cartService.addSingleDishToBasket(user, dishService.findById(dish.getId()));
         ServiceResponse<Long> response = new ServiceResponse<>("success", dish.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("account/deleteFromBasket")
     public ResponseEntity<Object> deleteDish(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Dish dish) {
-        cartService.deleteBookFromBasket(user, dish);
+        cartService.deleteDishFromBasket(user, dish);
         ServiceResponse<Long> response = new ServiceResponse<>("success", dish.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("account/dishToProcessing")
     public ResponseEntity<Object> dishToProcessing(@AuthenticationPrincipal CustomUserDetail user, @RequestBody Dish dish) {
-        cartService.sendBookToProcessing(user, dish);
+        cartService.sendDishToProcessing(user, dish);
         ServiceResponse<Long> response = new ServiceResponse<Long>("success", dish.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("account/AllDishToProcessing")
     public ResponseEntity<Object> allDishToProcessing(@AuthenticationPrincipal CustomUserDetail user) {
-        cartService.sendAllBooksToProcessing(user);
+        cartService.sendAllDishesToProcessing(user);
         ServiceResponse<Long> response = new ServiceResponse<Long>("success", user.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

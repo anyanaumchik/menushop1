@@ -18,7 +18,7 @@ public class IncorrectInputExceptionHandler {
     private DishController dishController;
 
     @ExceptionHandler(Exception.class)
-    public String notBook(Exception e) {
+    public String notDish(Exception e) {
         return "redirect:/";
     }
 

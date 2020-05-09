@@ -234,7 +234,7 @@
 
 
                             <#if dish.image??>
-                            <p><a href="/dish/${dish.id}"><img src="/${dish.image.bookImage}" class="leftimg"
+                            <p><a href="/dish/${dish.id}"><img src="/${dish.image.dishImage}" class="leftimg"
                                                                width="96" height="125"/></a>
                                 <#else>
                             <p><a href="/dish/${dish.id}"><img src="/dishImageNotFound.jpg" class="leftimg"

@@ -61,7 +61,7 @@ public class UserController {
 
     @PostMapping("{user}/approvedDish")
     public ResponseEntity<Object> approvedSingleDishToUser(@RequestBody Dish dish, @PathVariable User user) {
-        cartService.approvedSingleBookToUser(dish, user);
+        cartService.approvedSingleDishesToUser(dish, user);
         ServiceResponse<Long> response = new ServiceResponse<Long>("success", dish.getId());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

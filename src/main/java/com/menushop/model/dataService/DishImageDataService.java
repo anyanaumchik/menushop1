@@ -1,7 +1,7 @@
 package com.menushop.model.dataService;
 
 import com.menushop.model.dao.DishImageDAO;
-import com.menushop.model.entity.BookImage;
+import com.menushop.model.entity.DishImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,15 +13,15 @@ public class DishImageDataService {
     @Autowired
     private DishImageDAO dishImageDAO;
 
-    public void save(BookImage bookImage) {
-        dishImageDAO.save(bookImage);
+    public void save(DishImage dishImage) {
+        dishImageDAO.save(dishImage);
     }
 
-    public List<BookImage> findAll() {
+    public List<DishImage> findAll() {
         return dishImageDAO.findAll();
     }
 
-    public BookImage findById(long id) {
+    public DishImage findById(long id) {
         return dishImageDAO.findById(id);
     }
 

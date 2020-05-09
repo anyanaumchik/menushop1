@@ -1,7 +1,7 @@
 package com.menushop.model.dataService;
 
 import com.menushop.model.dao.CafeImageDAO;
-import com.menushop.model.entity.AuthorImage;
+import com.menushop.model.entity.CafeImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,15 +13,15 @@ public class CafeImageDataService {
     @Autowired
     private CafeImageDAO cafeImageDAO;
 
-    public void save(AuthorImage author_image) {
+    public void save(CafeImage author_image) {
         cafeImageDAO.save(author_image);
     }
 
-    public List<AuthorImage> findAll() {
+    public List<CafeImage> findAll() {
         return cafeImageDAO.findAll();
     }
 
-    public AuthorImage findById(long id) {
+    public CafeImage findById(long id) {
         return cafeImageDAO.findById(id);
     }
 

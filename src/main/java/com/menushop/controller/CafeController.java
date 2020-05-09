@@ -35,10 +35,10 @@ public class CafeController {
     }
 
     @PostMapping("admin/{cafeId}")
-    public String cafeSaveEditedInformation(@RequestParam String surname, @RequestParam String name, @RequestParam("cafeId") Cafe cafe,
+    public String cafeSaveEditedInformation(@RequestParam String name, @RequestParam("cafeId") Cafe cafe,
                                             @RequestParam MultipartFile image) throws IOException {
         try {
-            cafeService.update(surname, name, cafe, image);
+            cafeService.update(name, cafe, image);
         } catch (Exception e) {
             throw new PageNotFoundException();
         }
@@ -46,7 +46,7 @@ public class CafeController {
     }
 
     @GetMapping
-    public String authorList(Model model) {
+    public String cafeList(Model model) {
         model.addAttribute("cafes", cafeService.findAll());
         return "cafeList";
     }
@@ -67,9 +67,9 @@ public class CafeController {
     }
 
     @GetMapping("/{cafe}/dishes")
-    public String authorDishes(Model model, @PathVariable long cafe, @PageableDefault(size = 12) Pageable pageable) {
+    public String cafeDishes(Model model, @PathVariable long cafe, @PageableDefault(size = 12) Pageable pageable) {
         try {
-            model.addAttribute("page", dishService.findAllByAuthor(cafeService.findById(cafe), pageable));
+            model.addAttribute("page", dishService.findAllByCafe(cafeService.findById(cafe), pageable));
         } catch (Exception e) {
             throw new PageNotFoundException();
         }

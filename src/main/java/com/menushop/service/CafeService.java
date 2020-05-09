@@ -48,7 +48,7 @@ public class CafeService {
         return cafeDataService.findAll();
     }
 
-    public void update(String surname, String name, Cafe cafe, MultipartFile image) throws IOException {
+    public void update(String name, Cafe cafe, MultipartFile image) throws IOException {
         cafe.setName(name);
         Long authorImageToDelete = null;
         if (image != null && image.getOriginalFilename() != null && !image.getOriginalFilename().isEmpty()) {

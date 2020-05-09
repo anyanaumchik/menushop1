@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class PageNotFoundExceptionHandler {
 
     @ExceptionHandler(PageNotFoundException.class)
-    public String notBook(Exception e) {
+    public String notDish(Exception e) {
         return "notFound";
     }
 

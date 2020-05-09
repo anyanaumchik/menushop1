@@ -1,15 +1,15 @@
 package com.menushop.model.dao;
 
-import com.menushop.model.entity.AuthorImage;
+import com.menushop.model.entity.CafeImage;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface CafeImageDAO extends CrudRepository<AuthorImage, Long> {
+public interface CafeImageDAO extends CrudRepository<CafeImage, Long> {
 
-    List<AuthorImage> findAll();
+    List<CafeImage> findAll();
 
-    AuthorImage findById(long id);
+    CafeImage findById(long id);
 
     void deleteById(long id);
 }

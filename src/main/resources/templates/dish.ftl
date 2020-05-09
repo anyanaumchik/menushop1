@@ -39,12 +39,12 @@
     <div class="container  mt-5">
     <form id="basketAdd">
         <#if dish.image??>
-        <p><img src="/${dish.image.bookImage}" align="left" class="m-2" width="300" height="400"/>
+        <p><img src="/${dish.image.dishImage}" align="left" class="m-2" width="300" height="400"/>
             <#else>
         <p><img src="/dishImageNotFound.jpg" align="left" class="m-2" width="300" height="400"/>
             </#if>
         <div class="mt-5 m-5">
-            ${cafe}: ${dish.cafe.name}
+            ${cafe_name}: ${dish.cafe.name}
             <br>
             ${title}:
             <#if .lang=="en">

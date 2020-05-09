@@ -15,7 +15,7 @@ public class FilterService {
     @Autowired
     private CafeService cafeService;
 
-    public List<Cafe> authorsFilter(@RequestParam(defaultValue = "") String filter) {
+    public List<Cafe> cafesFilter(@RequestParam(defaultValue = "") String filter) {
         List<String> items = Arrays.asList(filter.split("\\s* \\s*"));
         List<Cafe> cafes = new ArrayList<>();
         if (items.size() > 1) {

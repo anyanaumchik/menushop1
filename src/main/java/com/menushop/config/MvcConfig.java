@@ -8,21 +8,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
     @Value("${upload.path.cafe}")
-    private String uploadPathAuthor;
+    private String uploadPathCafe;
 
     @Value("${upload.path.dish}")
-    private String uploadPathBook;
+    private String uploadPathDish;
     @Value("${upload.path.dish.not}")
-    private String uploadPathBookNot;
+    private String uploadPathDishNot;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/img/author/**")
-                .addResourceLocations("file:"+uploadPathAuthor+"/");
-        registry.addResourceHandler("/img/book/**")
-                .addResourceLocations("file:" + uploadPathBook + "/");
-        registry.addResourceHandler("/img/bookNot/**")
-                .addResourceLocations("file:/" + uploadPathBookNot + "/");
+        registry.addResourceHandler("/img/cafe/**")
+                .addResourceLocations("file:"+ uploadPathCafe +"/");
+        registry.addResourceHandler("/img/dish/**")
+                .addResourceLocations("file:" + uploadPathDish + "/");
+        registry.addResourceHandler("/img/dishNot/**")
+                .addResourceLocations("file:/" + uploadPathDishNot + "/");
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/");
     }

@@ -60,8 +60,8 @@ public class Cart {
         return dishesInProcessing;
     }
 
-    public void setDishesInProcessing(List<Dish> booksInProcessing) {
-        this.dishesInProcessing = booksInProcessing;
+    public void setDishesInProcessing(List<Dish> dishesInProcessing) {
+        this.dishesInProcessing = dishesInProcessing;
     }
 
     @ManyToMany
@@ -72,8 +72,8 @@ public class Cart {
         return dishesApproved;
     }
 
-    public void setDishesApproved(List<Dish> booksApproved) {
-        this.dishesApproved = booksApproved;
+    public void setDishesApproved(List<Dish> dishesApproved) {
+        this.dishesApproved = dishesApproved;
     }
 
     public Cart(Long id, List<Dish> dishes, List<Dish> dishesInProcessing, List<Dish> dishesApproved, User user) {

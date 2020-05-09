@@ -76,8 +76,8 @@ public class DishService {
         dishDataService.deleteById(id);
     }
 
-    public Page<Dish> findAllByAuthor(Cafe cafe, Pageable pageable) {
-        return dishDataService.findAllByAuthor(cafe, pageable);
+    public Page<Dish> findAllByCafe(Cafe cafe, Pageable pageable) {
+        return dishDataService.findAllByCafe(cafe, pageable);
     }
 
     public Page<Dish> findAllByCategories(Category category, Pageable pageable) {

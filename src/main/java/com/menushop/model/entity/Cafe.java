@@ -12,15 +12,15 @@ public class Cafe {
     private Long id;
     private String name;
     private List<Dish> dishes;
-    private AuthorImage image;
+    private CafeImage image;
 
     @OneToOne
     @JoinColumn(name = "FK_IMAGE_ID")
-    public AuthorImage getImage() {
+    public CafeImage getImage() {
         return image;
     }
 
-    public void setImage(AuthorImage image) {
+    public void setImage(CafeImage image) {
         this.image = image;
     }
 
@@ -54,7 +54,7 @@ public class Cafe {
         this.name = name;
     }
 
-    public Cafe(Long id, String name, List<Dish> dishes, AuthorImage image) {
+    public Cafe(Long id, String name, List<Dish> dishes, CafeImage image) {
         this.id = id;
         this.name = name;
         this.dishes = dishes;

@@ -27,7 +27,7 @@ public class FilterController {
     public String filter(Model model, @RequestParam(defaultValue = "") String filter) {
         if (filter != null && !filter.equals("")) {
             model.addAttribute("dishes", dishService.findByTitleEnOrTitleRu(filter, filter));
-            model.addAttribute("cafes", filterService.authorsFilter(filter));
+            model.addAttribute("cafes", filterService.cafesFilter(filter));
             model.addAttribute("category", categoryService.findFirstByTitleEnOrTitleRu(filter, filter));
         }
         model.addAttribute("filter", filter);

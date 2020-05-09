@@ -45,7 +45,7 @@
 
                 <div class="card m-2" <#--style="width: 20rem;"-->>
                     <#if cafe.image??>
-                        <img class="card-img-top" src="/${cafe.image.authorImage}" height="370">
+                        <img class="card-img-top" src="/${cafe.image.cafeImage}" height="370">
                     <#else >
                         <img src="/cafeImageNotFound.png" width="260.5" height="370">
                     </#if>

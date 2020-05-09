@@ -44,7 +44,7 @@ public class CartService {
         return cart;
     }
 
-    public void addSingleBookToBasket(User user, Dish dish) {
+    public void addSingleDishToBasket(User user, Dish dish) {
         Cart cart = userService.getCurrentUser(user).getCart();
         if (cart == null) {
             cart = create(user);
@@ -57,27 +57,27 @@ public class CartService {
         save(cart);
     }
 
-    public void deleteBookFromBasket(CustomUserDetail user, Dish dish) {
+    public void deleteDishFromBasket(CustomUserDetail user, Dish dish) {
         Cart cart = userService.getCurrentUser(user).getCart();
         cart.getDishes().remove(dishService.findById(dish.getId()));
         save(cart);
     }
 
-    public void sendBookToProcessing(CustomUserDetail user, Dish dish) {
+    public void sendDishToProcessing(CustomUserDetail user, Dish dish) {
         Cart cart = userService.getCurrentUser(user).getCart();
         cart.getDishes().remove(dishService.findById(dish.getId()));
         cart.getDishesInProcessing().add(dishService.findById(dish.getId()));
         save(cart);
     }
 
-    public void sendAllBooksToProcessing(CustomUserDetail user) {
+    public void sendAllDishesToProcessing(CustomUserDetail user) {
         Cart cart = userService.getCurrentUser(user).getCart();
         cart.getDishesInProcessing().addAll(cart.getDishes());
         cart.getDishes().clear();
         save(cart);
     }
 
-    public void approvedSingleBookToUser(Dish dish, User user) {
+    public void approvedSingleDishesToUser(Dish dish, User user) {
         Cart cart = userService.getCurrentUser(user).getCart();
         cart.getDishesInProcessing().remove(dishService.findById(dish.getId()));
         cart.getDishesApproved().add(dishService.findById(dish.getId()));

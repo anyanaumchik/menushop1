@@ -5,7 +5,7 @@
     <#assign index=0>
     <form action="/dish/admin/save" method="post" enctype="multipart/form-data">
         <#if dish.image??>
-            <img src="/${dish.image.bookImage}" width="300" height="400">
+            <img src="/${dish.image.dishImage}" width="300" height="400">
         </#if>
 
         <div class="input-group mb-3 mt-2">

@@ -35,7 +35,7 @@ public class DishDataService {
         return dishDAO.findAll();
     }
 
-    public Page<Dish> findAllByAuthor(Cafe cafe, Pageable pageable) {
+    public Page<Dish> findAllByCafe(Cafe cafe, Pageable pageable) {
         return dishDAO.findAllByCafe(cafe, pageable);
     }
 

@@ -30,7 +30,7 @@ public class DeleteController {
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping("/cafe/admin/delete/{id}")
-    public String deleteAuthor(@PathVariable long id) {
+    public String deleteCafe(@PathVariable long id) {
         cafeService.deleteById(id);
         return "redirect:/cafe";
     }

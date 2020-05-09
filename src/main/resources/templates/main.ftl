@@ -18,7 +18,7 @@
                     <#assign dishIndex++>
                     <#if dish.image??>
                         <a href="/dish/${dish.id}"><img class="card-img-top"
-                                                        src="/${dish.image.bookImage}"
+                                                        src="/${dish.image.dishImage}"
                                                         <#--class="leftimg" width="96" height="125"-->height="370"
                                                         alt="Card image cap"/></a>
                     <#else>
@@ -42,7 +42,7 @@
                 <div class="card">
                     <#assign cafeIndex++>
                     <#if cafe.image??>
-                        <img src="/${cafe.image.authorImage}" height="226"/>
+                        <img src="/${cafe.image.cafeImage}" height="226"/>
                     <#else >
                         <img src="/cafeImageNotFound.png" height="226">
                     </#if>

@@ -41,11 +41,11 @@
                         <div class="card my-3">
 
                             <#if dish.image??>
-                            <p><img src="/${dish.image.bookImage}" class="leftimg" width="96" height="125">
+                            <p><img src="/${dish.image.dishImage}" class="leftimg" width="96" height="125">
                                 <#else>
                             <p><img src="/dishImageNotFound.jpg" class="leftimg" width="96" height="125">
                                 </#if>
-                                ${author}: ${dish.cafe.name} ${dish.cafe.surname}
+                                ${cafe_name}: ${dish.cafe.name}
                                 <br>
                                 ${title}
                                 <#if .lang=="en">
@@ -90,10 +90,10 @@
 
                 <div class="card m-2" <#--style="width: 20rem;"-->>
                     <#if cafe.image??>
-                        <img class="card-img-top" src="/i${cafe.image.authorImage}" height="400">
+                        <img class="card-img-top" src="/i${cafe.image.cafeImage}" height="400">
                     </#if>
                     <div class="card-body">
-                        <a class="card-titlem-2">${cafe.surname} ${cafe.name}</a>
+                        <a class="card-titlem-2"> ${cafe.name}</a>
                         <br>
                         <div class="card-text">
                             <a href="/cafe/${cafe.id}/dishes" class="btn btn-primary m-2">список книг</a>
@@ -107,7 +107,7 @@
             </#list>
         </div>
     <#else>
-        <h5>${filter_authors_not}</h5>
+        <h5>${filter_cafe_not}</h5>
     </#if>
     ${filter_categories}
     <#if category??>
@@ -135,7 +135,7 @@
                             <#list dishes as dish>
                                 <#if index<5>
                                     <div class="card">
-                                        Author: ${dish.cafe.surname} ${dish.cafe.surname}<br>
+                                        Cafe: ${dish.cafe.name} <br>
                                         Title:
                                         <#if .lang=="en">
                                             ${dish.titleEn}
