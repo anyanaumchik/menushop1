@@ -61,7 +61,7 @@
                 </#if>
             </div>
             <br>
-            <b class="mr-2">${price}: ${dish.price} BYN</b>
+            <b class="mr-2">${dish_price}: ${dish.price} BYN</b>
             <br>
             <button type="submit" class="btn btn-primary" onclick=editCurrentId(${dish.id})
                     <#if name="unknown">disabled="disabled"</#if>>
@@ -73,7 +73,7 @@
                    class="btn btn-primary ml-2 leftText">${edit}</a>
             </#if>
 
-            <input type="hidden" id="bookId" value="${dish.id}">
+            <input type="hidden" id="dishId" value="${dish.id}">
     </form>
 
     </div></@f.footer>

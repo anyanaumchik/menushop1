@@ -70,7 +70,7 @@
                                        class="btn btn-primary ml-2 leftText">${edit}</a>
                                 </#if>
                                 <br>
-                                <b class="mr-2">${price}: ${dish.price} BYN</b>
+                                <b class="mr-2">${dish_price}: ${dish.price} BYN</b>
                                 <#if name!="unknown">
                                 </#if>
                             </div>

@@ -128,10 +128,10 @@
                             <form method="post" action="/dish<#--/admin/create-->" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">${price}</span>
+                                        <span class="input-group-text" id="basic-addon1">${dish_price}</span>
                                     </div>
-                                    <input type="number" step="0.01" name="price" placeholder="${price}"
-                                           class="form-control" aria-label="${price}"
+                                    <input type="number" step="0.01" name="price" placeholder="${dish_price}"
+                                           class="form-control" aria-label="${dish_price}"
                                            aria-describedby="basic-addon1"/>
                                 </div>
                                 <div class="input-group mb-3">
@@ -270,7 +270,7 @@
                                    class="btn btn-primary ml-2 leftText">${view}</a>
 
 
-                                <b class="mr-2">${price}: ${dish.price} BYN</b>
+                                <b class="mr-2">${dish_price}: ${dish.price} BYN</b>
                                 <br/>
 
                                 <button type="submit" class="btn btn-primary" onclick="editCurrentId(${dish.id})"
