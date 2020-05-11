@@ -6,6 +6,7 @@ COPY src /workspace/src
 RUN mvn -B -f pom.xml clean package -DskipTests
 
 FROM openjdk:11-jdk-slim
-COPY —from=build /workspace/target/*.jar /
+COPY /target/*.jar /
 EXPOSE 8083
+EXPOSE 3306
 ENTRYPOINT ["java","-jar","project-mysql-spring.jar"]
