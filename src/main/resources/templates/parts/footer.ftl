@@ -18,7 +18,7 @@
 
     <div id="page-container">
         <#nested>
-        <footer id="footer" class="mb-0">Copyright © 2019 meny.by by Spy Girls</footer>
+        <footer id="footer" class="mb-0">Copyright © 2020 meny.by by Spy Girls</footer>
     </div>
 
 </#macro>
